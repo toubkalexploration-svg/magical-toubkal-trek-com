@@ -1,26 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand color tokens */
+  --brand-slate: #1C2D37;      /* Deep Slate/Stone for mountain theme */
+  --brand-slate-light: #2A3F4C;
+  --brand-terracotta: #D97706;  /* Amber/Terracotta accent */
+  --brand-terracotta-dark: #B45309;
+  --brand-green: #14532D;       /* Forest green for nature accents */
+  --brand-green-light: #166534;
+  
+  /* Layout background / foreground tokens */
+  --background: #FAF7F2;        /* Warm sand/cream background */
+  --foreground: #1E293B;        /* Cool slate text */
+  --card-bg: #FFFFFF;
+  --border-color: #E2E8F0;
+  
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
 @theme inline {
+  --color-brand-slate: var(--brand-slate);
+  --color-brand-slate-light: var(--brand-slate-light);
+  --color-brand-terracotta: var(--brand-terracotta);
+  --color-brand-terracotta-dark: var(--brand-terracotta-dark);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-light: var(--brand-green-light);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card-bg: var(--card-bg);
+  --color-border-color: var(--border-color);
+  
+  --font-sans: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(28, 45, 55, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1FAE5;
+  border-radius: 9999px;
+  border: 2px solid #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A7F3D0;
+}
+
+/* Animated grain or high-end texture overlays can be added if desired */
+.mountain-gradient {
+  background: linear-gradient(135deg, var(--brand-slate) 0%, var(--brand-slate-light) 100%);
+}
+
+.terracotta-gradient {
+  background: linear-gradient(135deg, var(--brand-terracotta) 0%, var(--brand-terracotta-dark) 100%);
 }
