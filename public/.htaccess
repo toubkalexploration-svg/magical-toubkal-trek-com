@@ -1,6 +1,9 @@
 # Serve the custom Next.js 404 page
 ErrorDocument 404 /404.html
 
+# Make our static homepage take priority over any host default (e.g. default.php)
+DirectoryIndex index.html index.htm
+
 # Force HTTPS and the canonical www host (matches metadataBase / canonical tags)
 <IfModule mod_rewrite.c>
   RewriteEngine On
