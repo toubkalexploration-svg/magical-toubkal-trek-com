@@ -1,0 +1,47 @@
+name: Deploy to Hostinger
+
+# Build the static site and upload it to Hostinger (public_html) on every push to main.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: hostinger-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Contents of the Next.js static export.
+          local-dir: ./out/
+          # Web root on Hostinger Business hosting. If your FTP account is already
+          # scoped to public_html, change this to ./
+          server-dir: /public_html/
+          # Keep files that live on the server but not in the repo (e.g. SSL, logs).
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.htaccess.bak
