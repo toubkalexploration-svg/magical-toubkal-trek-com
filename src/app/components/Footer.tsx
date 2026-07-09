@@ -27,7 +27,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Specialist mountain guides for Mount Toubkal climbs, M'goun wilderness circuits, and authentic Berber valley treks. Based locally in the High Atlas.
+              Specialist mountain guides for Mount Toubkal climbs, M&apos;goun wilderness circuits, and authentic Berber valley treks. Based locally in the High Atlas.
             </p>
             {/* Social credentials */}
             <div className="flex items-center gap-3 pt-2">
@@ -104,7 +104,7 @@ export function Footer() {
         {/* SEO Trust Copy & Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-700/50">
           <p className="text-xs text-slate-400 leading-relaxed mb-6 text-center max-w-4xl mx-auto">
-            Magical Toubkal Trek is an independent local tour guiding team specialized in the High Atlas Mountains. We arrange safe, sustainable, and memorable trekking tours to Mount Toubkal (4,167m) and Jebel M'goun (4,071m), with certified mountain guides, local cooks, and muleteers. Booking policy requires written confirmation and local payment or secure transfer. All climbs comply with Moroccan mountain safety regulations.
+            Magical Toubkal Trek is an independent local tour guiding team specialized in the High Atlas Mountains. We arrange safe, sustainable, and memorable trekking tours to Mount Toubkal (4,167m) and Jebel M&apos;goun (4,071m), with certified mountain guides, local cooks, and muleteers. Booking policy requires written confirmation and local payment or secure transfer. All climbs comply with Moroccan mountain safety regulations.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
             <p>&copy; {currentYear} Magical Toubkal Trek. All rights reserved.</p>

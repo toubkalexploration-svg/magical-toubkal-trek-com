@@ -62,7 +62,7 @@ export function ReviewSlider() {
 
           {/* Testimonial Text */}
           <blockquote className="text-lg md:text-xl font-medium text-slate-700 italic leading-relaxed max-w-2xl mb-8">
-            "{review.text}"
+            &ldquo;{review.text}&rdquo;
           </blockquote>
 
           {/* Author Details */}

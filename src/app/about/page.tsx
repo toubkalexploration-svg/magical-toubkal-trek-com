@@ -93,7 +93,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Environmental Respect</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                We strictly enforce 'Leave No Trace' policies. We carry out all trash, preserve local flora, and educate trekkers on water and resource conservation.
+                We strictly enforce &apos;Leave No Trace&apos; policies. We carry out all trash, preserve local flora, and educate trekkers on water and resource conservation.
               </p>
             </div>
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_30px_rgba(28,45,55,0.01)] text-center space-y-3">

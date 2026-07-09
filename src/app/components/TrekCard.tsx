@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, TrendingUp, ChevronRight } from "lucide-react";
+import { Clock, ChevronRight } from "lucide-react";
 import type { Trek } from "../data/treks";
 
 type TrekCardProps = {

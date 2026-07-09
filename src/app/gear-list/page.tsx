@@ -165,7 +165,7 @@ export default function GearList() {
           <p className="font-bold text-brand-terracotta-dark uppercase tracking-wider mb-1">
             🎒 Need to Rent Gear?
           </p>
-          Don't buy expensive gear for a single trek! High-quality sleeping bags, hiking poles, winter boots, and waterproof shells can be rented locally in Imlil on arrival. Let us know what you need in your booking form so we can reserve it for you.
+          Don&apos;t buy expensive gear for a single trek! High-quality sleeping bags, hiking poles, winter boots, and waterproof shells can be rented locally in Imlil on arrival. Let us know what you need in your booking form so we can reserve it for you.
         </div>
 
       </div>

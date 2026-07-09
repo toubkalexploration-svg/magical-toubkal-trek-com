@@ -64,13 +64,13 @@ export default function Home() {
           <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-terracotta/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-brand-terracotta mb-6">
               <Compass className="h-4 w-4 animate-spin-slow" />
-              Imlil Valley's Premier Mountain Guides
+              Imlil Valley&apos;s Premier Mountain Guides
             </span>
             <h1 className="text-4xl font-black uppercase tracking-tight sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-[1.1] text-white">
               Magical High Atlas <span className="text-brand-terracotta">Trekking Tours</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Explore Mount Toubkal (4,167m) climbs, Jebel M'goun wilderness ridges, and authentic Berber villages with certified local guides who know every stone of these historic mountains.
+              Explore Mount Toubkal (4,167m) climbs, Jebel M&apos;goun wilderness ridges, and authentic Berber villages with certified local guides who know every stone of these historic mountains.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

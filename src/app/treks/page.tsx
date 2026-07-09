@@ -37,7 +37,7 @@ export default function TreksCatalog() {
           </h1>
           <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
           <p className="mt-4 text-sm md:text-base text-slate-500">
-            Compare our 1-day guided village walks, standard 2-day Toubkal ascents, 3-day waterfall routes, and multi-day wilderness treks through Jebel M'goun.
+            Compare our 1-day guided village walks, standard 2-day Toubkal ascents, 3-day waterfall routes, and multi-day wilderness treks through Jebel M&apos;goun.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function TreksCatalog() {
             <Compass className="h-16 w-16 text-slate-300 mx-auto mb-4 animate-pulse" />
             <h3 className="text-lg font-bold text-slate-700">No Trekking Tours Found</h3>
             <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
-              We couldn't find any treks matching your query. Try resetting your search term or selecting a different difficulty filter.
+              We couldn&apos;t find any treks matching your query. Try resetting your search term or selecting a different difficulty filter.
             </p>
             <button
               onClick={() => {

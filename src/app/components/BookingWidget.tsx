@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { Send, PhoneCall, Calendar, Users, MessageSquare } from "lucide-react";
 import type { Trek } from "../data/treks";
-import { getPriceForGroup, getTrekBySlug } from "../data/treks";
+import { getPriceForGroup } from "../data/treks";
 import { contactEmail, contactPhone } from "../data/contact";
 
 type BookingWidgetProps = {

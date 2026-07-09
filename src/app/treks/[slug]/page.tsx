@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, TrendingUp, MapPin, Check, X, Shield, Star } from "lucide-react";
 import { treks, getTrekBySlug } from "../../data/treks";
@@ -57,9 +58,9 @@ export default async function TrekDetail({ params }: Props) {
         
         {/* Breadcrumbs */}
         <nav className="flex text-xs font-bold uppercase tracking-wider text-slate-400 mb-6 gap-2">
-          <a href="/" className="hover:text-brand-terracotta transition-colors">Home</a>
+          <Link href="/" className="hover:text-brand-terracotta transition-colors">Home</Link>
           <span>/</span>
-          <a href="/treks" className="hover:text-brand-terracotta transition-colors">Trekking Tours</a>
+          <Link href="/treks" className="hover:text-brand-terracotta transition-colors">Trekking Tours</Link>
           <span>/</span>
           <span className="text-slate-500">{trek.title}</span>
         </nav>
@@ -218,7 +219,7 @@ export default async function TrekDetail({ params }: Props) {
               <div className="bg-emerald-50/20 border border-emerald-100 rounded-2xl p-6 space-y-4">
                 <h3 className="text-base font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
                   <Check className="h-5 w-5 text-emerald-500 shrink-0" />
-                  What's Included
+                  What&apos;s Included
                 </h3>
                 <ul className="space-y-2.5 text-xs text-slate-600">
                   {trek.inclusions.map((item, idx) => (
@@ -234,7 +235,7 @@ export default async function TrekDetail({ params }: Props) {
               <div className="bg-rose-50/20 border border-rose-100 rounded-2xl p-6 space-y-4">
                 <h3 className="text-base font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
                   <X className="h-5 w-5 text-rose-500 shrink-0" />
-                  What's Excluded
+                  What&apos;s Excluded
                 </h3>
                 <ul className="space-y-2.5 text-xs text-slate-600">
                   {trek.exclusions.map((item, idx) => (
@@ -260,9 +261,9 @@ export default async function TrekDetail({ params }: Props) {
                 ))}
               </ul>
               <div className="pt-2 text-xs">
-                <a href="/gear-list" className="text-brand-terracotta font-bold underline hover:text-brand-terracotta-dark">
+                <Link href="/gear-list" className="text-brand-terracotta font-bold underline hover:text-brand-terracotta-dark">
                   View full gear checklist &rarr;
-                </a>
+                </Link>
               </div>
             </div>
 
