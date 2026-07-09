@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { reviews, aggregateRating } from "../data/reviews";
-import { tripAdvisorUrl } from "../data/contact";
+import { googleMapsUrl, tripAdvisorUrl } from "../data/contact";
 
 export function ReviewSlider() {
   const [index, setIndex] = useState(0);
@@ -21,27 +21,54 @@ export function ReviewSlider() {
   return (
     <div className="relative mx-auto max-w-4xl px-4 py-8">
       {/* Verified aggregate rating */}
-      <a
-        href={tripAdvisorUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto mb-8 flex w-fit items-center gap-3 rounded-full border border-slate-200/70 bg-white/80 px-5 py-2.5 shadow-sm transition-all duration-200 hover:shadow-md"
-      >
-        <span className="text-2xl font-black text-brand-slate">
-          {aggregateRating.ratingValue.toFixed(1)}
-        </span>
-        <span className="flex items-center gap-0.5">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className="h-4 w-4 fill-brand-terracotta text-brand-terracotta"
-            />
-          ))}
-        </span>
-        <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-          {aggregateRating.reviewCount} reviews on TripAdvisor
-        </span>
-      </a>
+      <div className="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+        <a
+          href={tripAdvisorUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-3 rounded-full border border-slate-200/70 bg-white/80 px-5 py-2.5 shadow-sm transition-all duration-200 hover:border-[#00AF87]/40 hover:shadow-md sm:w-auto"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00AF87] text-[10px] font-black text-white">
+            TA
+          </span>
+          <span className="text-2xl font-black text-brand-slate">
+            {aggregateRating.ratingValue.toFixed(1)}
+          </span>
+          <span className="flex items-center gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-4 w-4 fill-[#00AF87] text-[#00AF87]"
+              />
+            ))}
+          </span>
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            {aggregateRating.reviewCount} reviews on TripAdvisor
+          </span>
+        </a>
+        <a
+          href={tripAdvisorUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-full border border-[#00AF87]/30 bg-[#00AF87] px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-sm transition-all duration-200 hover:bg-[#008F70] hover:shadow-md sm:w-auto"
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[9px] font-black text-[#00AF87]">
+            TA
+          </span>
+          <span>See more Reviews</span>
+        </a>
+        <a
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 text-xs font-black uppercase tracking-wider text-slate-700 shadow-sm transition-all duration-200 hover:border-blue-200 hover:shadow-md sm:w-auto"
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-sm font-black shadow-sm ring-1 ring-slate-200">
+            <span className="text-blue-600">G</span>
+          </span>
+          <span>View our Google reviews too</span>
+        </a>
+      </div>
 
       {/* Testimonial card */}
       <div className="glass-panel rounded-3xl p-8 md:p-12 shadow-[0_24px_80px_rgba(28,45,55,0.04)] border border-slate-200/60 relative overflow-hidden bg-white/80">

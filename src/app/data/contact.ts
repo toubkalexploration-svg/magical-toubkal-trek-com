@@ -1,7 +1,7 @@
 export const contactEmail = "info@magical-toubkal-trek.com";
-export const contactPhone = "+212617108823";
-export const contactPhoneDisplay = "+212 6 17 10 88 23";
-export const whatsappUrl = "https://wa.me/212617108823";
+export const contactPhone = "+212631989641";
+export const contactPhoneDisplay = "+212 6 31 98 96 41";
+export const whatsappUrl = "https://wa.me/212631989641";
 export const contactMailtoUrl = "mailto:info@magical-toubkal-trek.com";
 
 // Verified external business profiles (used for SEO sameAs signals and trust links)

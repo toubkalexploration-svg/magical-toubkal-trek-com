@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Compass, Menu, X, PhoneCall } from "lucide-react";
@@ -8,20 +8,7 @@ import { contactPhoneDisplay, whatsappUrl } from "../data/contact";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -32,13 +19,7 @@ export function Header() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-brand-slate/95 shadow-lg backdrop-blur-md py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#B8793C]/95 py-3 shadow-lg backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -48,7 +29,7 @@ export function Header() {
             </div>
             <div>
               <span className="block text-lg font-black uppercase tracking-wider text-white">
-                Magical Toubkal
+                Atlas Toubkal Trek
               </span>
               <span className="block -mt-1.5 text-xs font-semibold tracking-[0.25em] text-brand-terracotta uppercase">
                 Trek & guiding
@@ -64,8 +45,8 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-brand-terracotta ${
-                    isActive ? "text-brand-terracotta" : "text-white"
+                  className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-brand-slate ${
+                    isActive ? "text-brand-slate" : "text-white"
                   }`}
                 >
                   {link.name}
@@ -92,7 +73,7 @@ export function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/15 focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
@@ -112,7 +93,7 @@ export function Header() {
         }`}
         id="mobile-menu"
       >
-        <div className="space-y-1 px-4 pb-4 pt-2 bg-brand-slate shadow-xl border-t border-white/5">
+        <div className="space-y-1 px-4 pb-4 pt-2 bg-[#B8793C] shadow-xl border-t border-white/10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -122,8 +103,8 @@ export function Header() {
                 onClick={() => setIsOpen(false)}
                 className={`block rounded-md px-3 py-2 text-base font-semibold tracking-wide uppercase ${
                   isActive
-                    ? "bg-brand-terracotta/20 text-brand-terracotta"
-                    : "text-white hover:bg-white/5 hover:text-brand-terracotta"
+                    ? "bg-white/20 text-brand-slate"
+                    : "text-white hover:bg-white/10 hover:text-brand-slate"
                 }`}
               >
                 {link.name}

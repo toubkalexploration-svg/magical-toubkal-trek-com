@@ -1,9 +1,13 @@
 import Link from "next/link";
-import { Compass, ShieldCheck, HeartHandshake, MapPin, Award, Star } from "lucide-react";
+import { Compass, ShieldCheck, HeartHandshake, MapPin, Award, Star, PhoneCall } from "lucide-react";
 import { treks } from "./data/treks";
 import { TrekCard } from "./components/TrekCard";
 import { ReviewSlider } from "./components/ReviewSlider";
 import { JsonLd } from "./components/JsonLd";
+import {
+  contactPhoneDisplay,
+  whatsappUrl,
+} from "./data/contact";
 
 export default function Home() {
   const whyUs = [
@@ -66,7 +70,7 @@ export default function Home() {
               <Compass className="h-4 w-4 animate-spin-slow" />
               Imlil Valley&apos;s Premier Mountain Guides
             </span>
-            <h1 className="text-4xl font-black uppercase tracking-tight sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-[1.1] text-white">
+            <h1 className="text-4xl font-black uppercase tracking-normal sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-[1.2] text-white">
               Magical High Atlas <span className="text-brand-terracotta">Trekking Tours</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -253,6 +257,17 @@ export default function Home() {
               >
                 Read Trek FAQs
               </Link>
+            </div>
+            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-emerald-100 transition-colors duration-200 hover:bg-emerald-500/20 sm:w-auto"
+              >
+                <PhoneCall className="h-4 w-4" />
+                <span>{contactPhoneDisplay}</span>
+              </a>
             </div>
           </div>
         </section>
