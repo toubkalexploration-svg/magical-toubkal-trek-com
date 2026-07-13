@@ -84,7 +84,7 @@ export default function ContactPage() {
           </h1>
           <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
           <p className="mt-4 text-sm text-slate-500">
-            Choose your trek, group details, and preferred dates. You can send the request by email or open a ready-to-send WhatsApp message with our team.
+            Send your route, dates, and group size. We will answer with a clear plan, not a long sales pitch.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-slate-100 bg-white p-6 md:p-8 shadow-[0_4px_30px_rgba(28,45,55,0.01)] space-y-6">
               <h3 className="text-lg font-bold uppercase tracking-wider text-slate-800">Local Guiding Crew</h3>
               <p className="text-xs text-slate-400 font-bold uppercase tracking-wider leading-relaxed">
-                Contact our local office in Imlil for custom tour packages or route customization.
+                Based in Imlil. Ask about trail conditions, transport, gear, or a private route.
               </p>
               
               <ul className="space-y-4 text-sm text-slate-600">
@@ -146,8 +146,8 @@ export default function ContactPage() {
 
             {/* Response alert */}
             <div className="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-5 text-xs text-slate-600 leading-relaxed">
-              <p className="font-bold text-emerald-800 uppercase tracking-wider mb-1">⚡ Fast Support Guarantee</p>
-              We respond to all emails within 1 hour during Moroccan business hours. Chat inquiries on WhatsApp receive immediate attention.
+              <p className="font-bold text-emerald-800 uppercase tracking-wider mb-1">⚡ Quick Reply</p>
+              WhatsApp is fastest. If we are on the trail, we reply as soon as we reach signal.
             </div>
 
           </div>

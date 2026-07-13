@@ -19,15 +19,15 @@ const faqData: FaqCategory[] = [
     items: [
       {
         q: "How difficult is it to climb Mount Toubkal?",
-        a: "Mount Toubkal is a non-technical climb, meaning no ropes or mountaineering skills are required. However, it is physically demanding. You will walk 5-6 hours on Day 1 and 8-10 hours on Day 2. The terrain is steep, containing loose rock and scree, and the high altitude (4,167m) will make breathing heavier. Active walkers with good cardiovascular fitness will find it highly manageable."
+        a: "Toubkal does not need ropes, but it is still hard work. Expect long walking days, loose stone, and thin air near 4,167m. If you walk regularly and pace yourself, it is manageable."
       },
       {
         q: "What is Altitude Sickness and how is it prevented?",
-        a: "Acute Mountain Sickness (AMS) is caused by ascending to high altitudes too quickly. Symptoms include headache, mild nausea, and fatigue. The best prevention is a gradual ascent rate, walking at a slow rhythmic pace ('Berber step'), and drinking 3-4 liters of water daily. We recommend our 3-day Azzadene circular route or our 6-day circuit, both of which provide superior acclimatization."
+        a: "Altitude sickness can happen when you climb too fast. We walk slowly, drink often, and watch the group. The 3-day Azzadene route and 6-day circuit give your body more time."
       },
       {
         q: "Are the mountain guides qualified?",
-        a: "Yes. All our guides are licensed mountain guides certified by the Moroccan Ministry of Tourism after completing professional training at the Center for Training Mountain Guides (CFAMM) in Tabant. They speak multiple languages and are trained in first aid, rescue, and high-altitude safety."
+        a: "Yes. Our guides are licensed in Morocco and trained for mountain safety, first aid, and high-altitude routes."
       }
     ]
   },
@@ -36,15 +36,15 @@ const faqData: FaqCategory[] = [
     items: [
       {
         q: "Where does the trek start and how do I get there?",
-        a: "Most High Atlas treks start in the village of Imlil (1,740m), located 64km south of Marrakech. We include private, air-conditioned return transport from your Marrakech hotel or riad directly to the trailhead in Imlil in all our trek packages."
+        a: "Most routes start in Imlil, about 90 minutes from Marrakech. We can arrange pickup from your hotel or riad and bring you straight to the trailhead."
       },
       {
         q: "What happens to our luggage during the trek?",
-        a: "You only need to carry a small daypack (30-40L) containing water, camera, sun cream, layers, and personal items. Your main luggage (duffel bag or backpack up to 15kg) will be loaded onto mules driven by our local muleteers, who will transport it safely to the mountain refuges."
+        a: "You carry a daypack with water, layers, sun cream, and personal items. Main bags go with the muleteers, up to 15kg per person."
       },
       {
         q: "What is the accommodation like on the mountain?",
-        a: "On Mount Toubkal routes, you will stay at the Toubkal Refuge (Neltner Hut) at 3,207m. It provides bunk beds in shared dormitories, shared bathrooms with hot showers (paid locally), and a warm dining area. For wilderness routes like M'goun or our grand circuit, we camp in high-quality dual-layer tents with comfortable foam mattresses, dining tents, and toilet tents."
+        a: "On Toubkal routes, nights are usually in mountain refuges with shared dorms. On wilder routes such as M'goun, we camp with proper tents, mattresses, and a simple dining setup."
       }
     ]
   },
@@ -53,11 +53,11 @@ const faqData: FaqCategory[] = [
     items: [
       {
         q: "What is included in the tour price?",
-        a: "Our packages are all-inclusive: private transfer from Marrakech, certified mountain guide, cook, mule support, all meals during the trek, and mountain refuge/camping accommodation. There are no hidden costs. Exclusions are travel insurance, tips, personal gear rentals, and soft drinks."
+        a: "The price covers guide, cook, mule support, trek meals, accommodation or camp, and transport when listed. Not included: insurance, tips, drinks, and personal gear rental."
       },
       {
         q: "What is the tipping custom for mountain teams?",
-        a: "Tipping is custom in Moroccan culture and is highly appreciated by the local crews as it directly boosts their seasonal income. As a general guide, we recommend around €15 to €25 per traveler per day, pooled and shared among the guide, cook, and muleteers."
+        a: "Tips are not forced, but they are appreciated. Most groups give one shared tip at the end for the guide, cook, and muleteers."
       },
       {
         q: "Do I need travel insurance?",
@@ -92,7 +92,7 @@ export default function FaqPage() {
           </h1>
           <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
           <p className="mt-4 text-sm text-slate-500">
-            Read our comprehensive answers to the most common questions regarding difficulty, safety, packing, and booking logistics for your High Atlas trip.
+            Short answers about difficulty, safety, packing, and how the trip works.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function FaqPage() {
         <div className="mt-16 text-center bg-brand-slate text-white rounded-3xl p-8 md:p-10 shadow-lg relative overflow-hidden">
           <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight">Have More Questions?</h3>
           <p className="mt-3 text-slate-300 text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
-            If you need specific information on trail conditions, route planning, or group bookings, send us an inquiry directly.
+            Ask us about current trail conditions, weather, or the best route for your group.
           </p>
           <div className="mt-6 flex justify-center gap-4">
             <a

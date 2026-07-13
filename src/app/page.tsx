@@ -14,36 +14,36 @@ export default function Home() {
     {
       icon: <Award className="h-6 w-6 text-brand-terracotta" />,
       title: "100% Local Berber Team",
-      desc: "Our guides, cooks, and muleteers are all native to the High Atlas valleys. By booking with us, your money directly supports mountain families.",
+      desc: "Guides, cooks, and muleteers from the valleys. Your booking stays with local families.",
     },
     {
       icon: <ShieldCheck className="h-6 w-6 text-brand-terracotta" />,
       title: "Licensed & Safety-First",
-      desc: "We prioritize safety with certified mountain guides, well-paced routes for proper acclimatization, and local emergency support systems.",
+      desc: "Licensed guides, steady pacing, and routes chosen for the weather and the group.",
     },
     {
       icon: <HeartHandshake className="h-6 w-6 text-brand-terracotta" />,
       title: "Tailored & Flexible Walks",
-      desc: "From private alpine climbs to relaxed valley walks for families, we customize start dates, route pacing, and accommodation options.",
+      desc: "Private climbs, family walks, and flexible dates. We shape the route around you.",
     },
   ];
 
   const faqItems = [
-    {
-      q: "Is a guide mandatory for Mount Toubkal?",
-      a: "Yes. Due to local safety regulations, all trekkers climbing Mount Toubkal must be accompanied by a licensed local mountain guide. Safety checkpoints are in place along the trail to verify guide papers.",
-    },
-    {
-      q: "When is the best season to trek in the High Atlas?",
-      a: "The ideal trekking season is from May to October when weather is warm and mountain passes are free of snow. Winters (November to April) are beautiful but require alpine equipment like crampons, ice axes, and winter layers.",
-    },
-    {
-      q: "How do we handle altitude sickness (AMS)?",
-      a: "Altitude sickness can affect anyone. The best prevention is gradual ascent ('climbing high, sleeping low') and staying hydrated. Our 3-day and 6-day routes are specifically structured to optimize acclimatization before the summit push.",
-    },
-    {
-      q: "What meals are included during the treks?",
-      a: "All meals on the trek are fully included and freshly prepared by our professional mountain cooks. You can expect hearty tagines, hot pasta, fresh salads, local bread, seasonal fruits, and plenty of Moroccan mint tea. We cater to all dietary needs (vegetarian, gluten-free, vegan) at no extra charge.",
+      {
+        q: "Is a guide mandatory for Mount Toubkal?",
+        a: "Yes. A licensed local guide is required on Toubkal. There are checkpoints on the trail, and guide papers are checked.",
+      },
+      {
+        q: "When is the best season to trek in the High Atlas?",
+        a: "May to October is easiest: warmer days and fewer snow problems. Winter is beautiful, but you need crampons, warm layers, and a slower plan.",
+      },
+      {
+        q: "How do we handle altitude sickness (AMS)?",
+        a: "We walk slow, drink often, and do not rush the mountain. For better acclimatization, choose the 3-day route or the 6-day circuit.",
+      },
+      {
+        q: "What meals are included during the treks?",
+        a: "Meals are included on trek days. Expect tagine, pasta, bread, salads, fruit, and mint tea. Tell us early about vegetarian, vegan, or gluten-free needs.",
     },
   ];
 
@@ -58,7 +58,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1800&auto=format&fit=crop"
-              alt="Beautiful High Atlas Mountains panorama in Morocco"
+              alt="Trekkers exploring the High Atlas Mountains near Mount Toubkal in Morocco"
               className="h-full w-full object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-slate/40 via-brand-slate/85 to-brand-slate" />
@@ -74,7 +74,7 @@ export default function Home() {
               Magical High Atlas <span className="text-brand-terracotta">Trekking Tours</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Explore Mount Toubkal (4,167m) climbs, Jebel M&apos;goun wilderness ridges, and authentic Berber villages with certified local guides who know every stone of these historic mountains.
+              Walk Toubkal, M&apos;goun, and the valleys with local guides from the High Atlas. Clear routes, steady pace, real village hospitality.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -136,7 +136,7 @@ export default function Home() {
               </p>
               <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
               <p className="mt-4 text-base text-slate-500">
-                Choose from our handpicked treks, ranging from challenging Mount Toubkal summit climbs to remote wilderness trails and cultural day walks.
+                Pick a summit climb, a quiet valley walk, or a longer trail toward the wild side of the Atlas.
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
         <section className="py-24 bg-brand-slate text-white relative overflow-hidden">
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600" alt="Mountain silhouette overlay" className="w-[500px]" />
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600" alt="Mount Toubkal trekking silhouette in the High Atlas Mountains" className="w-[500px]" />
           </div>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1fr] gap-16 items-center">
@@ -163,9 +163,9 @@ export default function Home() {
                 </h2>
                 <div className="h-1 w-12 bg-brand-terracotta mt-4 mb-6" />
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  We are not a massive travel agency based in Europe or Marrakech. We are a family-run cooperative of guides, cooks, and muleteers born and raised in the high-altitude villages of the Atlas Mountains. 
+                  We are not a desk agency far from the trail. We are guides, cooks, and muleteers from the mountain villages around Imlil. 
                   <br /><br />
-                  To us, the mountains are not just a business; they are our home. We take pride in sharing our rich Amazigh (Berber) culture, preparing fresh, local meals, and guiding you safely along trails we have walked since childhood.
+                  These paths are our home ground: walnut valleys, high passes, stone villages, and the dry ridges that look toward the desert. We keep the pace honest and the welcome simple.
                 </p>
                 <div className="mt-8 flex gap-4">
                   <div className="flex items-center gap-1.5">
@@ -242,7 +242,7 @@ export default function Home() {
               Ready to Begin Your High Atlas Journey?
             </h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed">
-              Contact us today for booking inquiries, custom route suggestions, or advice on weather conditions and packing lists. We respond within 1 hour.
+              Send your dates and group size. We will tell you what works, what to pack, and which route fits the season.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

@@ -41,16 +41,16 @@ export default function AboutPage() {
               Rooted in the High Atlas Mountains
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Magical Toubkal Trek was founded by a collective of professional mountain guides, cooks, and muleteers from the Imlil and Azzadene valleys. Growing up in the shadow of Mount Toubkal, the mountain trails were our playground long before they became our profession.
+              Atlas Toubkal Trek is run by mountain people from Imlil, Azzadene, and nearby valleys. We grew up with these paths before they became our work.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We started this guiding team to offer travelers an authentic, safe, and deeply personal connection to our home. Unlike international tour agencies, we operate directly from the mountains. This means no middleman commissions, and 100% of our tour revenues directly support local families, schools, and mountain communities.
+              We guide directly from the mountains. No middlemen, no overpromising. Just clear plans, safe pacing, and money staying with local families.
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 border border-slate-100 shadow-sm">
             <Image
               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000"
-              alt="High Atlas mountain village landscape near Imlil"
+              alt="Local guides leading a village hike near Imlil in the High Atlas Mountains"
               fill
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover"
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <h2 className="text-xl font-bold uppercase tracking-wider text-brand-slate">Professional Guide Credentials</h2>
           </div>
           <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider leading-relaxed">
-            All our treks are led by licensed, certified guides. We comply with strict safety regulations set by the Moroccan Ministry of Tourism.
+            Licensed guides, local crews, and routes checked against season, weather, and group level.
           </p>
           <ul className="grid gap-4 sm:grid-cols-2">
             {credentials.map((cred, idx) => (
@@ -93,7 +93,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Environmental Respect</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                We strictly enforce &apos;Leave No Trace&apos; policies. We carry out all trash, preserve local flora, and educate trekkers on water and resource conservation.
+                We carry out rubbish, protect water points, and keep camps clean for the next group.
               </p>
             </div>
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_30px_rgba(28,45,55,0.01)] text-center space-y-3">
@@ -102,7 +102,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Fair Wages for Mules</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Our support team is family. We guarantee fair, above-market wages and weight limit rules (max 40kg per mule) for all our pack animal workers.
+                Our muleteers are part of the team. Loads are limited, and wages are agreed fairly.
               </p>
             </div>
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_30px_rgba(28,45,55,0.01)] text-center space-y-3">
@@ -111,7 +111,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Berber Heritage</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                We share the values of cooperation, hospitality, and respect. We introduce our guests to the language, music, and food of our ancestors.
+                We share the food, language, and mountain customs we live with every day.
               </p>
             </div>
           </div>

@@ -85,7 +85,7 @@ export default function GearList() {
           </h1>
           <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
           <p className="mt-4 text-sm text-slate-500">
-            Use our interactive checklist below to organize your gear. Pack light; your main luggage will be carried by our support mules (max 15kg per person).
+            Pack light and bring what works. Main bags go with the mule team, up to 15kg per person.
           </p>
         </div>
 
@@ -165,7 +165,7 @@ export default function GearList() {
           <p className="font-bold text-brand-terracotta-dark uppercase tracking-wider mb-1">
             🎒 Need to Rent Gear?
           </p>
-          Don&apos;t buy expensive gear for a single trek! High-quality sleeping bags, hiking poles, winter boots, and waterproof shells can be rented locally in Imlil on arrival. Let us know what you need in your booking form so we can reserve it for you.
+          You can rent sleeping bags, poles, winter boots, and waterproof layers in Imlil. Tell us before arrival so we can keep the right sizes aside.
         </div>
 
       </div>

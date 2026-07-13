@@ -29,7 +29,7 @@ export function Header() {
             </div>
             <div>
               <span className="block text-lg font-black uppercase tracking-wider text-white">
-                Atlas Toubkal Trek
+                Magical Toubkal Trekking
               </span>
               <span className="block -mt-1.5 text-xs font-semibold tracking-[0.25em] text-brand-terracotta uppercase">
                 Trek & guiding

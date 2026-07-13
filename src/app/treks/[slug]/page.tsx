@@ -251,7 +251,7 @@ export default async function TrekDetail({ params }: Props) {
             {/* Packing checklist essentials */}
             <div className="bg-slate-100/50 border border-slate-200/50 rounded-2xl p-6 space-y-4">
               <h3 className="text-base font-bold uppercase tracking-wider text-slate-800">Trek Specific Packing Essentials</h3>
-              <p className="text-xs text-slate-500">Ensure you have these critical items specifically prepared for this itinerary:</p>
+              <p className="text-xs text-slate-500">Bring these items first. The rest depends on season and route.</p>
               <ul className="grid gap-2 sm:grid-cols-2 text-xs text-slate-600 font-semibold">
                 {trek.packingList.slice(0, 6).map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2">
@@ -277,20 +277,20 @@ export default async function TrekDetail({ params }: Props) {
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_4px_30px_rgba(28,45,55,0.01)] space-y-4">
               <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center gap-2">
                 <Shield className="h-4 w-4 text-brand-terracotta" />
-                Guaranteed Local Service
+                Local Service
               </h4>
               <ul className="space-y-2.5 text-xs text-slate-500">
                 <li className="flex gap-2 items-start">
                   <Star className="h-3.5 w-3.5 text-brand-terracotta shrink-0 mt-0.5 fill-brand-terracotta" />
-                  <span>No middleman commissions. Pay locally in Imlil or via secure wire.</span>
+                  <span>No middlemen. You deal with the mountain team.</span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <Star className="h-3.5 w-3.5 text-brand-terracotta shrink-0 mt-0.5 fill-brand-terracotta" />
-                  <span>Free cancellation up to 7 days before tour departure.</span>
+                  <span>Plans can move if weather or conditions change.</span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <Star className="h-3.5 w-3.5 text-brand-terracotta shrink-0 mt-0.5 fill-brand-terracotta" />
-                  <span>All routes customizable. Adjust pacing or upgrade refuges on private climbs.</span>
+                  <span>Private routes can be paced around your group.</span>
                 </li>
               </ul>
             </div>

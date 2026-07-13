@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Magical Toubkal Trek | Mount Toubkal Climbs & Atlas Mountain Guides",
     description:
-      "Trek Mount Toubkal (4,167m) and the High Atlas Mountains. Certified local guides, cooks, and mules for safe and unforgettable Moroccan mountain climbs.",
+      "Trek Mount Toubkal and the High Atlas with local guides, cooks, and muleteers from the valleys around Imlil.",
     url: "https://www.magical-toubkal-trek.com",
     siteName: "Magical Toubkal Trek",
     locale: "en_US",

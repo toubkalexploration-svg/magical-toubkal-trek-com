@@ -69,7 +69,7 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-terracotta">Book With Local Guides</p>
         <h3 className="text-2xl font-extrabold mt-1 tracking-tight">Reserve This Tour</h3>
         <p className="text-xs text-slate-300 leading-relaxed mt-2">
-          Calculate your group rate below and send us an inquiry. No upfront payment required to request availability.
+          Check the group price and send your dates. No payment needed to ask.
         </p>
       </div>
 
@@ -183,7 +183,7 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
         </div>
 
         <p className="text-[10px] text-center text-slate-400 font-semibold uppercase tracking-wider mt-2">
-          ⚡ Responds within 1 hour during local business hours
+          ⚡ WhatsApp is fastest when we are between trips
         </p>
 
       </div>
