@@ -55,16 +55,16 @@ export default function Home() {
       <main className="min-h-screen">
         
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-slate text-white pt-24">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-700 text-white pt-24">
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={heroTrek.imageSrc}
               alt={heroTrek.imageAlt}
-              className="h-full w-full object-cover opacity-35"
+              className="h-full w-full object-cover opacity-75"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-slate/40 via-brand-slate/85 to-brand-slate" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(217,119,6,0.15),transparent_40%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-slate-950/35 to-brand-slate/70" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(217,119,6,0.1),transparent_42%)]" />
           </div>
 
           <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
