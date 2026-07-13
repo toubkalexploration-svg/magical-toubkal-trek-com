@@ -273,7 +273,7 @@ export const treks: Trek[] = [
     startLocation: "Aït Bougmez (Pick up from Marrakech)",
     endLocation: "Aït Bougmez (Drop off in Marrakech)",
     startingPrice: 380,
-    imageSrc: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=1200&auto=format&fit=crop",
+    imageSrc: cloudinaryImage("20260612_085923_mpuawn"),
     imageAlt: "Trekkers climbing from Tarkedit Plateau toward the Jebel M'goun summit",
     highlights: [
       "Summit Jebel M'goun (4,071m), a remote limestone peak with a knife-edge ridge",
@@ -378,7 +378,7 @@ export const treks: Trek[] = [
     startLocation: "Imlil (Pick up from Marrakech)",
     endLocation: "Imlil (Drop off in Marrakech)",
     startingPrice: 420,
-    imageSrc: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop",
+    imageSrc: cloudinaryImage("IMG_2060_rz7xjv"),
     imageAlt: "Trekkers hiking from Amsouzert to Lake Ifni on the Mount Toubkal circuit",
     highlights: [
       "Make a full circuit around Mount Toubkal",

@@ -10,6 +10,8 @@ import {
 } from "./data/contact";
 
 export default function Home() {
+  const heroTrek = treks.find((trek) => trek.slug === "2-day-toubkal-trek") ?? treks[0];
+
   const whyUs = [
     {
       icon: <Award className="h-6 w-6 text-brand-terracotta" />,
@@ -57,8 +59,8 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1800&auto=format&fit=crop"
-              alt="Trekkers exploring the High Atlas Mountains near Mount Toubkal in Morocco"
+              src={heroTrek.imageSrc}
+              alt={heroTrek.imageAlt}
               className="h-full w-full object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-slate/40 via-brand-slate/85 to-brand-slate" />
