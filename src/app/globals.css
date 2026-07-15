@@ -49,6 +49,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  word-spacing: 0.08em;
+}
+
 /* Glassmorphism custom classes */
 .glass-panel {
   background: rgba(255, 255, 255, 0.7);

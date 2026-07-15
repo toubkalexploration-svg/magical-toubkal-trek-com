@@ -20,16 +20,16 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#B8793C]/95 py-3 shadow-lg backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/70 bg-white/95 py-3 shadow-sm backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 text-white group">
+          <Link href="/" className="flex items-center gap-2 text-brand-slate group">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-terracotta text-white shadow-md transition-transform duration-300 group-hover:scale-110">
               <Compass className="h-6 w-6" />
             </div>
             <div>
-              <span className="block text-lg font-black uppercase tracking-wider text-white">
+              <span className="block text-lg font-black uppercase tracking-wider text-brand-slate">
                 Magical Toubkal Trekking
               </span>
               <span className="block -mt-1.5 text-xs font-semibold tracking-[0.25em] text-brand-terracotta uppercase">
@@ -46,8 +46,8 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-brand-slate ${
-                    isActive ? "text-brand-slate" : "text-white"
+                  className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 hover:text-brand-terracotta ${
+                    isActive ? "text-brand-terracotta" : "text-brand-slate"
                   }`}
                 >
                   {link.name}
@@ -74,7 +74,7 @@ export function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/15 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-2 text-brand-slate hover:bg-slate-100 focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
@@ -94,7 +94,7 @@ export function Header() {
         }`}
         id="mobile-menu"
       >
-        <div className="space-y-1 px-4 pb-4 pt-2 bg-[#B8793C] shadow-xl border-t border-white/10">
+        <div className="space-y-1 px-4 pb-4 pt-2 bg-white shadow-xl border-t border-slate-200">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -104,15 +104,15 @@ export function Header() {
                 onClick={() => setIsOpen(false)}
                 className={`block rounded-md px-3 py-2 text-base font-semibold tracking-wide uppercase ${
                   isActive
-                    ? "bg-white/20 text-brand-slate"
-                    : "text-white hover:bg-white/10 hover:text-brand-slate"
+                    ? "bg-brand-terracotta/10 text-brand-terracotta"
+                    : "text-brand-slate hover:bg-slate-100 hover:text-brand-terracotta"
                 }`}
               >
                 {link.name}
               </Link>
             );
           })}
-          <div className="pt-4 pb-2 border-t border-white/10">
+          <div className="pt-4 pb-2 border-t border-slate-200">
             <a
               href={whatsappUrl}
               target="_blank"
