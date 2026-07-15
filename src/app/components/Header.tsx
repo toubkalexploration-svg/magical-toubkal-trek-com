@@ -13,6 +13,7 @@ export function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Trekking Tours", href: "/treks" },
+    { name: "Blog", href: "/blog" },
     { name: "FAQs", href: "/faq" },
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" },

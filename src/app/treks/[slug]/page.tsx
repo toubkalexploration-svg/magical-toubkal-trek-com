@@ -169,19 +169,19 @@ export default async function TrekDetail({ params }: Props) {
                           Day {day.day}: {day.title}
                         </h3>
                         {day.walkingTime && (
-                          <span className="inline-flex items-center gap-1 text-xs font-bold text-brand-terracotta uppercase">
+                          <span className="inline-flex items-center gap-1 text-sm font-bold text-brand-terracotta uppercase">
                             <Clock className="h-3.5 w-3.5" />
                             {day.walkingTime}
                           </span>
                         )}
                       </div>
                       
-                      <p className="text-sm text-slate-500 leading-relaxed">
+                      <p className="text-base text-slate-500 leading-relaxed">
                         {day.description}
                       </p>
 
                       {/* Day Metadata */}
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-semibold pt-1 text-slate-400">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm font-semibold pt-1 text-slate-400">
                         {day.distance && (
                           <div>
                             <span className="block uppercase text-[10px] font-bold text-slate-400">Distance</span>
