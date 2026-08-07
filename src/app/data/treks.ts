@@ -480,6 +480,156 @@ export const treks: Trek[] = [
         accommodation: "None (Return to Marrakech)"
       }
     ]
+  },
+  {
+    slug: "2-day-azzaden-valley-berber-villages",
+    title: "2-Day Azzaden Valley & Berber Villages Trek",
+    duration: "2 Days",
+    subtitle: "A scenic village-to-village circuit over Tizi Mzik into the quieter Azzaden Valley.",
+    summary: "This two-day High Atlas trek trades the busy summit trail for red-earth villages, juniper slopes, walnut terraces, and wide views across the Azzaden Valley. Cross Tizi Mzik from Imlil, sleep in Tizi Oussem, and return by a different valley route. It is a strong cultural trek without extreme altitude.",
+    difficulty: "Moderate",
+    maxElevation: "2,489m (8,166 ft)",
+    startLocation: "Imlil (Pick up from Marrakech)",
+    endLocation: "Aguersioual (Drop off in Marrakech)",
+    startingPrice: 135,
+    imageSrc: cloudinaryImage("c697a8e8-927c-41dc-90fb-32245b41991a_zz9vui"),
+    imageAlt: "Hikers crossing Tizi Mzik toward the Azzaden Valley and Berber villages",
+    highlights: [
+      "Cross Tizi Mzik (2,489m) between the Imlil and Azzaden valleys",
+      "Stay overnight in the mountain village of Tizi Oussem",
+      "Walk through walnut groves, terraced fields, and juniper woodland",
+      "See the Toubkal massif from a quieter western approach",
+      "Complete a varied circuit rather than retracing the same trail"
+    ],
+    inclusions: [
+      "Private transfer from and to your Marrakech accommodation",
+      "Licensed English-speaking local mountain guide",
+      "One night in a simple village guesthouse in Tizi Oussem",
+      "Lunch and dinner on day one, breakfast and lunch on day two",
+      "Cook and mule support for main luggage where trail conditions allow",
+      "Tea and drinking-water guidance during the trek"
+    ],
+    exclusions: [
+      "Travel insurance covering mountain walking",
+      "Personal snacks, bottled drinks, and souvenirs",
+      "Tips for the guide, cook, and muleteer team",
+      "Personal trekking clothing, boots, and poles"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 250 },
+      { groupSize: 2, pricePerPerson: 165 },
+      { groupSize: 3, pricePerPerson: 150 },
+      { groupSize: 4, pricePerPerson: 140 },
+      { groupSize: 5, pricePerPerson: 130 },
+      { groupSize: 6, pricePerPerson: 120 }
+    ],
+    packingList: [
+      "Comfortable hiking boots with reliable grip",
+      "Small daypack and reusable water bottles (at least 2L)",
+      "Light waterproof jacket and an insulating evening layer",
+      "Sun hat, sunglasses, and high-SPF sunscreen",
+      "Trekking poles for the pass descent",
+      "Personal toiletries and a lightweight travel towel",
+      "Cash for village purchases and guide-team tips",
+      "Seasonal layers; winter departures may need warmer equipment"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – Imlil (1,740m) – Tizi Mzik (2,489m) – Tizi Oussem (1,850m)",
+        description: "Leave Marrakech in the morning and meet the mountain team in Imlil. The trail climbs through Mzik village and shaded juniper slopes to Tizi Mzik, the broad pass separating the Ait Mizane and Azzaden valleys. Pause for lunch and views toward the Toubkal massif, then descend into a quieter landscape of terraces and scattered hamlets. Continue to Tizi Oussem for mint tea, dinner, and a night in a village guesthouse.",
+        walkingTime: "5 - 6 hours",
+        distance: "11 km (6.8 miles)",
+        elevationChange: "+749m / -639m",
+        meals: "Lunch, Dinner",
+        accommodation: "Village guesthouse in Tizi Oussem"
+      },
+      {
+        day: 2,
+        title: "Tizi Oussem – Id Aissa – Tizi Oudite (2,219m) – Aguersioual – Marrakech",
+        description: "After breakfast, follow the Azzaden Valley past cultivated slopes and the village of Id Aissa. Climb steadily to Tizi Oudite for a final panorama across the western High Atlas. The path then drops through juniper woodland toward Matate and the road near Aguersioual. Meet the vehicle after lunch for the return to Marrakech, normally arriving in the late afternoon.",
+        walkingTime: "5 - 6 hours",
+        distance: "12 km (7.5 miles)",
+        elevationChange: "+369m / -829m",
+        meals: "Breakfast, Lunch",
+        accommodation: "None (Return to Marrakech)"
+      }
+    ]
+  },
+  {
+    slug: "2-day-imlil-imenane-valleys-trek",
+    title: "2-Day Imlil & Imenane Valleys Trek",
+    duration: "2 Days",
+    subtitle: "Cross Tizi n'Tamatert and walk through the high villages of the Imenane Valley.",
+    summary: "A rewarding two-day traverse from Imlil into the Imenane Valley, designed for hikers who want mountain scenery and Amazigh village life without a 4,000m summit. The route crosses Tizi n'Tamatert, stays in Tacheddirt, and follows the cultivated valley downstream through traditional settlements.",
+    difficulty: "Moderate",
+    maxElevation: "2,400m (7,874 ft)",
+    startLocation: "Imlil (Pick up from Marrakech)",
+    endLocation: "Asni (Drop off in Marrakech)",
+    startingPrice: 130,
+    imageSrc: cloudinaryImage("701FA6D7-809B-402D-918B-8CD10151C39A_i04spe"),
+    imageAlt: "Hikers overlooking villages and terraces in the Imenane Valley near Imlil",
+    highlights: [
+      "Cross panoramic Tizi n'Tamatert between two High Atlas valleys",
+      "Spend a night in Tacheddirt, one of Morocco's highest villages",
+      "Follow village paths through Ouaneskra, Tamguist, and Ikiss",
+      "Experience cultivated terraces, walnut groves, and local guesthouse hospitality",
+      "Enjoy a lower-altitude alternative to a Mount Toubkal climb"
+    ],
+    inclusions: [
+      "Private Marrakech transfers at the beginning and end of the trek",
+      "Licensed English-speaking mountain guide from the Imlil area",
+      "One night in a simple Tacheddirt village guesthouse",
+      "All trek meals from lunch on day one through lunch on day two",
+      "Cook and mule support for luggage where required",
+      "Route planning adapted to weather and group pace"
+    ],
+    exclusions: [
+      "Travel insurance covering hiking activities",
+      "Personal drinks, snacks, and purchases",
+      "Tips for the local support team",
+      "Personal clothing, footwear, and trekking equipment"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 240 },
+      { groupSize: 2, pricePerPerson: 160 },
+      { groupSize: 3, pricePerPerson: 145 },
+      { groupSize: 4, pricePerPerson: 135 },
+      { groupSize: 5, pricePerPerson: 125 },
+      { groupSize: 6, pricePerPerson: 115 }
+    ],
+    packingList: [
+      "Broken-in hiking shoes or boots with good grip",
+      "Daypack and two litres of reusable water capacity",
+      "Waterproof shell and warm layer for the high village evening",
+      "Sun hat, sunglasses, and sunscreen",
+      "Trekking poles for uneven village paths",
+      "Personal toiletries and travel towel",
+      "Headlamp for the guesthouse",
+      "Warmer layers for spring, autumn, and winter departures"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – Imlil (1,740m) – Tizi n'Tamatert (2,279m) – Tacheddirt (2,300m)",
+        description: "Drive from Marrakech to Imlil and meet the guide and support team. Walk through Tamatert village, then climb the zig-zag trail to Tizi n'Tamatert. The pass opens views back across Imlil and forward along the long Imenane Valley. After a picnic lunch, traverse the upper slopes and descend gently to Ouaneskra and Tacheddirt. Settle into a local guesthouse and explore the village before dinner.",
+        walkingTime: "4 - 5 hours",
+        distance: "9 km (5.6 miles)",
+        elevationChange: "+660m / -100m",
+        meals: "Lunch, Dinner",
+        accommodation: "Village guesthouse in Tacheddirt"
+      },
+      {
+        day: 2,
+        title: "Tacheddirt – Ouaneskra – Tamguist – Ikiss – Asni – Marrakech",
+        description: "Descend gradually through the Imenane Valley, using old village paths above the river and passing stone houses, irrigated terraces, and seasonal orchards. Walk through Ouaneskra, Tamguist, and Ikiss, stopping for tea or lunch according to the group's pace. Continue to the lower valley and meet the vehicle near Asni for the afternoon drive back to Marrakech.",
+        walkingTime: "5 - 6 hours",
+        distance: "13 km (8.1 miles)",
+        elevationChange: "+120m / -1,150m",
+        meals: "Breakfast, Lunch",
+        accommodation: "None (Return to Marrakech)"
+      }
+    ]
   }
 ];
 

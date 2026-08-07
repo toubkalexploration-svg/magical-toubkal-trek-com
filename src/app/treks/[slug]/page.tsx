@@ -27,10 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${trek.title} | High Atlas Mountains Morocco`,
-    description: trek.subtitle,
+    title: trek.title,
+    description: `${trek.summary} From €${trek.startingPrice} per person with a licensed local Imlil guide.`.slice(0, 160),
     alternates: {
       canonical: `/treks/${trek.slug}`,
+    },
+    openGraph: {
+      title: `${trek.title} | Magical Toubkal Trek`,
+      description: trek.subtitle,
+      url: `/treks/${trek.slug}`,
+      type: "website",
+      images: [{ url: trek.imageSrc, alt: trek.imageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: trek.title,
+      description: trek.subtitle,
+      images: [trek.imageSrc],
     },
   };
 }
@@ -51,13 +64,59 @@ export default async function TrekDetail({ params }: Props) {
   };
 
   const diffStyle = difficultyColors[trek.difficulty] || difficultyColors.Moderate;
+  const trekUrl = `https://www.magical-toubkal-trek.com/treks/${trek.slug}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Product", "TouristTrip"],
+        "@id": `${trekUrl}#trek`,
+        name: trek.title,
+        description: trek.summary,
+        image: trek.imageSrc,
+        url: trekUrl,
+        brand: { "@type": "Brand", name: "Magical Toubkal Trek" },
+        touristType: trek.difficulty === "Easy" ? "Leisure hikers and families" : "Active hikers",
+        itinerary: trek.itinerary.map((day) => ({
+          "@type": "ItemList",
+          name: `Day ${day.day}: ${day.title}`,
+          description: day.description,
+        })),
+        offers: {
+          "@type": "Offer",
+          url: trekUrl,
+          priceCurrency: "EUR",
+          price: trek.startingPrice,
+          availability: "https://schema.org/InStock",
+          seller: {
+            "@type": "TravelAgency",
+            "@id": "https://www.magical-toubkal-trek.com/#business",
+            name: "Magical Toubkal Trek",
+          },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${trekUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.magical-toubkal-trek.com/" },
+          { "@type": "ListItem", position: 2, name: "Trekking Tours", item: "https://www.magical-toubkal-trek.com/treks" },
+          { "@type": "ListItem", position: 3, name: trek.title, item: trekUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <main className="min-h-screen bg-slate-50/30 pt-28 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumbs */}
-        <nav className="flex text-xs font-bold uppercase tracking-wider text-slate-400 mb-6 gap-2">
+        <nav aria-label="Breadcrumb" className="flex text-xs font-bold uppercase tracking-wider text-slate-400 mb-6 gap-2">
           <Link href="/" className="hover:text-brand-terracotta transition-colors">Home</Link>
           <span>/</span>
           <Link href="/treks" className="hover:text-brand-terracotta transition-colors">Trekking Tours</Link>

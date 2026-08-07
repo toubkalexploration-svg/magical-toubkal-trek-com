@@ -24,6 +24,23 @@ export default function TreksCatalog() {
 
   return (
     <main className="min-h-screen bg-slate-50/50 pt-28 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "High Atlas trekking tours",
+            numberOfItems: treks.length,
+            itemListElement: treks.map((trek, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: trek.title,
+              url: `https://www.magical-toubkal-trek.com/treks/${trek.slug}`,
+            })),
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}

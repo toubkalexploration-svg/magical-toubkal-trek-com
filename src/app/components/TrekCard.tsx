@@ -27,8 +27,8 @@ export function TrekCard({ trek }: TrekCardProps) {
           alt={trek.imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={45}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          priority={trek.slug === "2-day-toubkal-trek"} // pre-load first card LCP
         />
         {/* Duration float badge */}
         <div className="absolute left-4 top-4 rounded-full bg-brand-slate/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm flex items-center gap-1 backdrop-blur-sm">
@@ -45,7 +45,7 @@ export function TrekCard({ trek }: TrekCardProps) {
             {trek.difficulty}
           </span>
           {/* Max Altitude */}
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+          <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
             {trek.maxElevation} Peak
           </span>
         </div>
@@ -77,10 +77,10 @@ export function TrekCard({ trek }: TrekCardProps) {
         {/* Pricing & CTA */}
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-slate-100/60">
           <div>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">From</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-600">From</span>
             <div className="flex items-baseline gap-0.5">
               <span className="text-2xl font-black text-brand-slate">€{trek.startingPrice}</span>
-              <span className="text-xs text-slate-400 font-semibold uppercase">/ person</span>
+              <span className="text-xs text-slate-600 font-semibold uppercase">/ person</span>
             </div>
           </div>
           <Link

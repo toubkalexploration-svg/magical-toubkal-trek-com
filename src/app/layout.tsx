@@ -9,11 +9,13 @@ export const metadata: Metadata = {
     default: "Magical Toubkal Trek | Mount Toubkal Climbs & High Atlas Mountain Guides",
   },
   description:
-    "Book Mount Toubkal trekking climbs, Jebel M'goun wilderness routes, and local Imlil Valley Berber village walking tours. Fully guided by certified local mountain experts.",
+    "Book Mount Toubkal climbs, M'goun wilderness routes, and Imlil Berber village hikes with licensed local High Atlas mountain guides.",
   metadataBase: new URL("https://www.magical-toubkal-trek.com"),
-  alternates: {
-    canonical: "/",
-  },
+  applicationName: "Magical Toubkal Trek",
+  authors: [{ name: "Magical Toubkal Trek", url: "/about" }],
+  creator: "Magical Toubkal Trek",
+  publisher: "Magical Toubkal Trek",
+  category: "travel",
   openGraph: {
     title: "Magical Toubkal Trek | Mount Toubkal Climbs & Atlas Mountain Guides",
     description:
@@ -22,6 +24,24 @@ export const metadata: Metadata = {
     siteName: "Magical Toubkal Trek",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 384,
+        height: 384,
+        alt: "Magical Toubkal Trek logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Magical Toubkal Trek | Local High Atlas Guides",
+    description: "Private Mount Toubkal climbs and High Atlas treks led by local guides from Imlil, Morocco.",
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo.png",
   },
   robots: {
     index: true,

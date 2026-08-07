@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Compass, Menu, X, PhoneCall } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import { contactPhoneDisplay, whatsappUrl } from "../data/contact";
 
 export function Header() {
@@ -24,18 +25,15 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 text-brand-slate group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-terracotta text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-              <Compass className="h-6 w-6" />
-            </div>
-            <div>
-              <span className="block text-lg font-black uppercase tracking-wider text-brand-slate">
-                Magical Toubkal Trekking
-              </span>
-              <span className="block -mt-1.5 text-xs font-semibold tracking-[0.25em] text-brand-terracotta uppercase">
-                Trek & guiding
-              </span>
-            </div>
+          <Link href="/" className="group shrink-0" aria-label="Magical Toubkal Trek home">
+            <Image
+              src="/logo.png"
+              alt="Magical Toubkal Trek"
+              width={384}
+              height={384}
+              sizes="64px"
+              className="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-16 sm:w-16"
+            />
           </Link>
 
           {/* Desktop Nav */}

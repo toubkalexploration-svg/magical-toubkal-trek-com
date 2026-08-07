@@ -10,6 +10,12 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const headingId = (heading: string) =>
+  heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
@@ -27,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${post.title} | Magical Toubkal Trek`,
+    title: post.title,
     description: post.description,
     keywords: post.keywords,
     alternates: {
@@ -60,31 +66,51 @@ export default async function BlogPostPage({ params }: Props) {
     .map((trekSlug) => getTrekBySlug(trekSlug))
     .filter(Boolean);
 
-  const articleSchema = {
+  const postUrl = `https://www.magical-toubkal-trek.com/blog/${post.slug}`;
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.description,
-    "image": post.imageSrc,
-    "datePublished": post.publishedAt,
-    "dateModified": post.publishedAt,
-    "author": {
-      "@type": "Organization",
-      "name": "Magical Toubkal Trek"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Magical Toubkal Trek"
-    },
-    "mainEntityOfPage": `https://www.magical-toubkal-trek.com/blog/${post.slug}`,
-    "keywords": post.keywords.join(", ")
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${postUrl}#article`,
+        "headline": post.title,
+        "description": post.description,
+        "image": post.imageSrc.startsWith("http")
+          ? post.imageSrc
+          : `https://www.magical-toubkal-trek.com${post.imageSrc}`,
+        "datePublished": post.publishedAt,
+        "dateModified": post.publishedAt,
+        "author": {
+          "@type": "Organization",
+          "@id": "https://www.magical-toubkal-trek.com/#business",
+          "name": "Magical Toubkal Trek"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://www.magical-toubkal-trek.com/#business",
+          "name": "Magical Toubkal Trek"
+        },
+        "mainEntityOfPage": postUrl,
+        "keywords": post.keywords.join(", "),
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${postUrl}#breadcrumb`,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.magical-toubkal-trek.com/" },
+          { "@type": "ListItem", "position": 2, "name": "High Atlas Blog", "item": "https://www.magical-toubkal-trek.com/blog" },
+          { "@type": "ListItem", "position": 3, "name": post.title, "item": postUrl }
+        ]
+      }
+    ]
   };
 
   return (
     <main className="min-h-screen bg-white pt-28 pb-24">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
       />
       <article>
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -146,7 +172,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {post.sections.map((section) => (
-              <section key={section.heading} className="space-y-4">
+              <section key={section.heading} id={headingId(section.heading)} className="scroll-mt-28 space-y-4">
                 <h2 className="text-2xl font-black uppercase tracking-tight text-brand-slate">
                   {section.heading}
                 </h2>
@@ -170,6 +196,25 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+            <nav aria-label="Article sections" className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_4px_30px_rgba(28,45,55,0.02)]">
+              <h2 className="text-sm font-black uppercase tracking-wider text-brand-slate">
+                In this guide
+              </h2>
+              <ol className="mt-4 space-y-2.5">
+                {post.sections.map((section, index) => (
+                  <li key={section.heading}>
+                    <a
+                      href={`#${headingId(section.heading)}`}
+                      className="flex gap-2 text-xs font-semibold leading-relaxed text-slate-600 transition-colors hover:text-brand-terracotta"
+                    >
+                      <span className="text-brand-terracotta">{index + 1}.</span>
+                      <span>{section.heading}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
             <div className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6">
               <h3 className="text-sm font-black uppercase tracking-wider text-brand-slate">
                 Related Treks

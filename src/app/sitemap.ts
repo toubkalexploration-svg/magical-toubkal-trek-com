@@ -7,11 +7,12 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.magical-toubkal-trek.com";
+  const siteUpdatedAt = new Date("2026-08-06");
 
   // Core static pages
   const staticPages = ["", "/treks", "/blog", "/gear-list", "/faq", "/about", "/contact"].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: siteUpdatedAt,
     changeFrequency: "weekly" as const,
     priority: route === "" ? 1.0 : route === "/treks" || route === "/blog" ? 0.9 : 0.7,
   }));
@@ -19,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic trek detail pages
   const trekPages = treks.map((trek) => ({
     url: `${baseUrl}/treks/${trek.slug}`,
-    lastModified: new Date(),
+    lastModified: siteUpdatedAt,
     changeFrequency: "weekly" as const,
     priority: 0.95,
   }));
