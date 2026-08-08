@@ -41,7 +41,7 @@ export default function AboutPage() {
               Rooted in the High Atlas Mountains
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Atlas Toubkal Trek is run by mountain people from Imlil, Azzadene, and nearby valleys. We grew up with these paths before they became our work.
+              Magical Toubkal Trek is run by mountain people from Imlil, Azzadene, and nearby valleys. We grew up with these paths before they became our work.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
               We guide directly from the mountains. No middlemen, no overpromising. Just clear plans, safe pacing, and money staying with local families.

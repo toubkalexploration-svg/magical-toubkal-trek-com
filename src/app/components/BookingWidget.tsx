@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { Send, PhoneCall, Calendar, Users, MessageSquare } from "lucide-react";
 import type { Trek } from "../data/treks";
 import { getPriceForGroup } from "../data/treks";
-import { contactEmail, contactPhone } from "../data/contact";
+import { contactEmail, contactPhone, siteName } from "../data/contact";
 
 type BookingWidgetProps = {
   trek: Trek;
@@ -36,7 +36,7 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
   // Generate pre-filled WhatsApp link
   const whatsappBookingUrl = useMemo(() => {
     const text = encodeURIComponent(
-      `Hello Magical Toubkal Trek! I'd like to book the "${trek.title}" tour.\n\n` +
+      `Hello ${siteName}! I'd like to book the "${trek.title}" tour.\n\n` +
       `📅 Travel Date: ${date || "Not specified yet"}\n` +
       `👥 Group Size: ${people} travelers\n` +
       `💰 Est. Price: €${pricePerPerson} per person (€${total} total)\n` +
@@ -50,7 +50,7 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
   const emailBookingUrl = useMemo(() => {
     const subject = encodeURIComponent(`Booking Inquiry: ${trek.title}`);
     const body = encodeURIComponent(
-      `Hello Magical Toubkal Trek,\n\n` +
+      `Hello ${siteName},\n\n` +
       `I would like to inquire about booking the "${trek.title}" tour:\n\n` +
       `- Proposed Date: ${date || "To be discussed"}\n` +
       `- Number of Travelers: ${people}\n` +

@@ -16,6 +16,7 @@ import {
 import {
   contactEmail,
   contactPhoneDisplay,
+  siteName,
   whatsappUrl,
 } from "../data/contact";
 import { treks } from "../data/treks";
@@ -43,7 +44,7 @@ export default function ContactPage() {
     const childCount = children || "0";
 
     return (
-      `Hello Magical Toubkal Trek team,\n\n` +
+      `Hello ${siteName} team,\n\n` +
       `I would like to request a trek booking:\n\n` +
       `- Selected Trek: ${selectedTourTitle}\n` +
       `- Preferred Start Date: ${startDate || "To be discussed"}\n` +

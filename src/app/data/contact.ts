@@ -1,3 +1,4 @@
+export const siteName = "Magical Toubkal Trek";
 export const contactEmail = "contact.magicaltoubkaltrek@gmail.com";
 export const contactPhone = "+212631989641";
 export const contactPhoneDisplay = "+212 6 31 98 96 41";
