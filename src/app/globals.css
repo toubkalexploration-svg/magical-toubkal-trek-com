@@ -101,3 +101,60 @@ h1 {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
 }
+
+@keyframes trail-draw {
+  0% { stroke-dashoffset: 190; opacity: 0.35; }
+  55%, 100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes hiker-step {
+  0%, 100% { transform: translate(0, 0); }
+  45% { transform: translate(89px, -48px); }
+  55% { transform: translate(89px, -48px); }
+}
+
+@keyframes trail-progress {
+  0% { transform: translateX(-105%); }
+  60%, 100% { transform: translateX(105%); }
+}
+
+@keyframes loading-dot {
+  0%, 55%, 100% { opacity: 0.2; }
+  25% { opacity: 1; }
+}
+
+.loading-trail {
+  stroke-dasharray: 190;
+  animation: trail-draw 2.2s ease-in-out infinite;
+}
+
+.loading-hiker {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hiker-step 2.2s ease-in-out infinite;
+}
+
+.loading-progress {
+  width: 55%;
+  animation: trail-progress 1.5s ease-in-out infinite;
+}
+
+.loading-dots span {
+  animation: loading-dot 1.2s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.16s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-trail,
+  .loading-hiker,
+  .loading-progress,
+  .loading-dots span {
+    animation: none;
+  }
+
+  .loading-trail { stroke-dashoffset: 0; }
+  .loading-progress { width: 70%; transform: none; }
+  .loading-dots span { opacity: 1; }
+}
