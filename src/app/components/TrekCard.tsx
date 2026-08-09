@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Check, Clock, Mountain } from "lucide-react";
 import type { Trek } from "../data/treks";
 
 type TrekCardProps = {
@@ -8,91 +8,86 @@ type TrekCardProps = {
 };
 
 export function TrekCard({ trek }: TrekCardProps) {
-  // Get difficulty color style
   const difficultyColors = {
-    Easy: "bg-emerald-50 text-emerald-700 border-emerald-200/50",
-    Moderate: "bg-blue-50 text-blue-700 border-blue-200/50",
-    Challenging: "bg-amber-50 text-amber-800 border-amber-200/50",
-    Strenuous: "bg-rose-50 text-rose-800 border-rose-200/50",
+    Easy: "bg-emerald-500 text-white",
+    Moderate: "bg-sky-600 text-white",
+    Challenging: "bg-amber-500 text-slate-950",
+    Strenuous: "bg-rose-600 text-white",
   };
 
   const diffStyle = difficultyColors[trek.difficulty] || difficultyColors.Moderate;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_4px_30px_rgba(28,45,55,0.02)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(28,45,55,0.06)]">
-      {/* Visual cover */}
-      <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_8px_30px_rgba(28,45,55,0.07)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:border-brand-terracotta/30 hover:shadow-[0_24px_55px_rgba(28,45,55,0.14)] focus-within:border-brand-terracotta/50 focus-within:ring-2 focus-within:ring-brand-terracotta/20 motion-reduce:transform-none">
+      <Link
+        href={`/treks/${trek.slug}`}
+        className="relative block aspect-[16/10] w-full overflow-hidden bg-slate-100 focus-visible:outline-none"
+        aria-label={`View ${trek.title}`}
+      >
         <Image
           src={trek.imageSrc}
           alt={trek.imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           quality={45}
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transform-none"
         />
-        {/* Duration float badge */}
-        <div className="absolute left-4 top-4 rounded-full bg-brand-slate/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm flex items-center gap-1 backdrop-blur-sm">
-          <Clock className="h-3.5 w-3.5 text-brand-terracotta" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-slate/45 via-transparent to-black/10" />
+
+        <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-brand-slate/90 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-lg backdrop-blur-md">
+          <Clock className="h-3.5 w-3.5 text-amber-300" aria-hidden="true" />
           <span>{trek.duration}</span>
         </div>
-      </div>
+        <span className={`absolute right-4 top-4 rounded-full px-3 py-1.5 text-[10px] font-black uppercase tracking-wider shadow-lg ${diffStyle}`}>
+          {trek.difficulty}
+        </span>
+      </Link>
 
-      {/* Content */}
-      <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-center gap-2 mb-2">
-          {/* Difficulty */}
-          <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${diffStyle}`}>
-            {trek.difficulty}
-          </span>
-          {/* Max Altitude */}
-          <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
-            {trek.maxElevation} Peak
-          </span>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl font-bold text-slate-800 tracking-tight transition-colors duration-200 group-hover:text-brand-terracotta mb-2">
-          <Link href={`/treks/${trek.slug}`}>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <h3 className="text-xl font-black leading-snug tracking-tight text-brand-slate transition-colors duration-200 group-hover:text-brand-terracotta sm:text-[1.35rem]">
+          <Link href={`/treks/${trek.slug}`} className="rounded-sm focus-visible:outline-none">
             {trek.title}
           </Link>
         </h3>
 
-        {/* Subtitle */}
-        <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-600">
           {trek.subtitle}
         </p>
 
-        {/* Highlights summary */}
-        <div className="border-t border-slate-100 pt-4 mb-4">
-          <ul className="space-y-1.5 text-xs text-slate-600">
-            {trek.highlights.slice(0, 2).map((hl, idx) => (
-              <li key={idx} className="flex items-start gap-1.5">
-                <span className="text-brand-terracotta font-bold mt-0.5">&bull;</span>
-                <span className="line-clamp-1">{hl}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="mt-5 grid grid-cols-2 divide-x divide-slate-200 rounded-2xl border border-slate-200/80 bg-slate-50/80 py-3">
+          <div className="flex min-w-0 items-center gap-2 px-3">
+            <Mountain className="h-4 w-4 shrink-0 text-brand-terracotta" aria-hidden="true" />
+            <div className="min-w-0">
+              <span className="block text-[9px] font-black uppercase tracking-[0.14em] text-slate-500">Highest point</span>
+              <span className="block truncate text-xs font-bold text-brand-slate">{trek.maxElevation}</span>
+            </div>
+          </div>
+          <div className="flex min-w-0 items-center gap-2 px-3">
+            <Check className="h-4 w-4 shrink-0 text-brand-terracotta" aria-hidden="true" />
+            <div className="min-w-0">
+              <span className="block text-[9px] font-black uppercase tracking-[0.14em] text-slate-500">Trip style</span>
+              <span className="block truncate text-xs font-bold text-brand-slate">Private & guided</span>
+            </div>
+          </div>
         </div>
 
-        {/* Pricing & CTA */}
-        <div className="flex items-center justify-between mt-auto pt-3 border-t border-slate-100/60">
+        <div className="mt-auto flex items-end justify-between gap-4 pt-5">
           <div>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-600">From</span>
-            <div className="flex items-baseline gap-0.5">
-              <span className="text-2xl font-black text-brand-slate">€{trek.startingPrice}</span>
-              <span className="text-xs text-slate-600 font-semibold uppercase">/ person</span>
+            <span className="block text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">From</span>
+            <div className="mt-0.5 flex items-baseline gap-1">
+              <span className="text-2xl font-black tracking-tight text-brand-slate">€{trek.startingPrice}</span>
+              <span className="text-[11px] font-semibold text-slate-500">per person</span>
             </div>
           </div>
           <Link
             href={`/treks/${trek.slug}`}
-            className="inline-flex items-center justify-center gap-1 rounded-xl bg-slate-50 border border-slate-200/80 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 transition-all duration-200 hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-brand-slate px-4 py-3 text-xs font-black uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-terracotta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terracotta focus-visible:ring-offset-2 sm:px-5"
           >
-            <span>Details</span>
-            <ChevronRight className="h-3.5 w-3.5" />
+            <span>View trek</span>
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
-
       </div>
-    </div>
+    </article>
   );
 }
