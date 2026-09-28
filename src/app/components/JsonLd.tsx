@@ -29,7 +29,7 @@ export function JsonLd() {
     "@id": "https://www.magical-toubkal-trek.com/#business",
     "url": "https://www.magical-toubkal-trek.com",
     "logo": "https://www.magical-toubkal-trek.com/logo.png",
-    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200",
+    "image": "https://www.magical-toubkal-trek.com/toubkal-hero.webp",
     "description": "Local High Atlas mountain guiding team in Imlil, Morocco. Specialist organizers of Mount Toubkal climbs and wilderness treks.",
     "telephone": contactPhoneDisplay,
     "email": contactEmail,

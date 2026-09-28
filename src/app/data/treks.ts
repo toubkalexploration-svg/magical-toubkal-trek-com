@@ -20,6 +20,8 @@ export type Trek = {
   duration: string;
   subtitle: string;
   summary: string;
+  seoTitle?: string;
+  seoDescription?: string;
   difficulty: "Easy" | "Moderate" | "Challenging" | "Strenuous";
   maxElevation: string;
   startLocation: string;
@@ -27,6 +29,10 @@ export type Trek = {
   startingPrice: number;
   imageSrc: string;
   imageAlt: string;
+  galleryImages?: Array<{
+    src: string;
+    alt: string;
+  }>;
   highlights: string[];
   inclusions: string[];
   exclusions: string[];
@@ -198,6 +204,98 @@ export const treks: Trek[] = [
         elevationChange: "+960m / -2,427m",
         meals: "Breakfast, Lunch",
         accommodation: "None (Return to Marrakech)"
+      }
+    ]
+  },
+  {
+    slug: "3-day-mount-toubkal-acclimatization-trek",
+    title: "3-Day Mount Toubkal Trek with Acclimatization",
+    duration: "3 Days",
+    subtitle: "Prepare on Tedli Summit before a guided ascent of North Africa's highest peak.",
+    summary: "This three-day Mount Toubkal trek adds a dedicated acclimatization hike from Imlil to Tedli Summit before the refuge and summit stages. The gradual approach gives you more time on the mountain, a night in Imlil, and a better-prepared route to the 4,167m summit.",
+    seoTitle: "3-Day Mount Toubkal Acclimatization Trek",
+    seoDescription: "Climb Mount Toubkal in three days with a Tedli Summit acclimatization hike, local guide, Marrakech transfers, meals, and two mountain nights.",
+    difficulty: "Challenging",
+    maxElevation: "4,167m (13,671 ft)",
+    startLocation: "Marrakech (Hotel pickup)",
+    endLocation: "Marrakech (Hotel drop-off)",
+    startingPrice: 230,
+    imageSrc: cloudinaryImage("8b842b25-725a-447e-bad7-27c019bc4ec6_cnsukf"),
+    imageAlt: "Trekkers approaching Mount Toubkal during a three-day acclimatization trek from Imlil",
+    galleryImages: [
+      {
+        src: cloudinaryImage("f898e7a1-59a3-42e7-b3ad-7329e64de383_edlx7b"),
+        alt: "High Atlas trail above Imlil on the Mount Toubkal acclimatization route"
+      },
+      {
+        src: cloudinaryImage("e97e0c56-7ed0-4a32-9946-939232109c6c_ziqcj7"),
+        alt: "Mountain scenery near the Toubkal Refuge in Morocco"
+      }
+    ],
+    highlights: [
+      "Acclimatize with a guided first-day hike from Imlil to Tedli Summit",
+      "Walk through the Aït Mizane Valley and traditional Amazigh villages",
+      "Spend one night in Imlil and one night at the Toubkal Refuge",
+      "Reach the 4,167m summit of Mount Toubkal, North Africa's highest peak",
+      "Travel privately between your Marrakech accommodation and the trailhead"
+    ],
+    inclusions: [
+      "Private transfer from and to your hotel or riad in Marrakech",
+      "Licensed and experienced English-speaking local mountain guide",
+      "All meals during the trek (breakfasts, lunches, and dinners)",
+      "Mules and muleteers to carry your main luggage (maximum 15kg)",
+      "One night in an Imlil village guesthouse",
+      "One night in shared accommodation at the Toubkal Refuge",
+      "Cook to prepare fresh traditional Moroccan meals",
+      "Crampons and sleeping bags if required during winter"
+    ],
+    exclusions: [
+      "Travel insurance covering high-altitude trekking",
+      "Personal items, snacks, and soft drinks",
+      "Tips for the guide, cook, and muleteer team",
+      "Rental of personal trekking clothing, boots, and poles"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 390 },
+      { groupSize: 2, pricePerPerson: 250 },
+      { groupSize: 3, pricePerPerson: 230 },
+      { groupSize: 4, pricePerPerson: 210 },
+      { groupSize: 5, pricePerPerson: 195 },
+      { groupSize: 6, pricePerPerson: 180 }
+    ],
+    packingList: [
+      "Sturdy, broken-in trekking boots with ankle support",
+      "Thermal base layers and a warm insulated jacket",
+      "Windproof and waterproof jacket and trousers",
+      "Trekking poles for the long summit descent",
+      "Headlamp with spare batteries for the early summit start",
+      "Sun hat, sunglasses, and high-SPF sunscreen",
+      "Personal first-aid kit and reusable water bottles (minimum 2L)",
+      "Warm hat and gloves, plus seasonal winter equipment when advised"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – Imlil – Tedli Summit",
+        description: "Early morning pickup from your hotel in Marrakech and transfer to Imlil, the gateway to the High Atlas Mountains. Begin your guided acclimatization trek towards Tedli Summit, following beautiful mountain trails past traditional Amazigh villages and viewpoints over the surrounding valleys and peaks. After reaching the summit, descend to Imlil for dinner and an overnight stay.",
+        meals: "Lunch, Dinner",
+        accommodation: "Village guesthouse in Imlil"
+      },
+      {
+        day: 2,
+        title: "Imlil – Aït Mizane Valley – Toubkal Refuge",
+        description: "After breakfast, start the trek from Imlil towards the Toubkal Refuge. Follow scenic mountain trails through the Aït Mizane Valley, passing traditional Amazigh villages and enjoying impressive views of the High Atlas. Continue uphill to the Toubkal Refuge, where you will have dinner and spend the night before the summit ascent.",
+        walkingTime: "Approximately 5 - 6 hours",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Toubkal Refuge (shared dormitory)"
+      },
+      {
+        day: 3,
+        title: "Toubkal Refuge – Mount Toubkal Summit – Imlil – Marrakech",
+        description: "Wake early and begin the ascent of Mount Toubkal (4,167m), the highest peak in North Africa. Reach the summit and admire panoramic views across the Atlas Mountains. Descend to the refuge and continue through the Aït Mizane Valley to Imlil, where your vehicle will be waiting for the transfer to Marrakech. The trek ends on arrival at your Marrakech accommodation.",
+        walkingTime: "Approximately 8 - 10 hours",
+        meals: "Breakfast, Lunch",
+        accommodation: "None (return to Marrakech)"
       }
     ]
   },
@@ -628,6 +726,102 @@ export const treks: Trek[] = [
         elevationChange: "+120m / -1,150m",
         meals: "Breakfast, Lunch",
         accommodation: "None (Return to Marrakech)"
+      }
+    ]
+  },
+  {
+    slug: "3-day-family-imlil-azzaden-ouirgane-trek",
+    title: "3-Day Family Trek: Imlil, Azzaden Valley & Ouirgane",
+    duration: "3 Days",
+    subtitle: "A family-friendly High Atlas journey through Imlil, Tizi n'Mzik, the Azzaden Valley, and Ouirgane.",
+    summary: "Designed for families travelling with children, this three-day High Atlas experience begins with a gentle afternoon in Imlil before crossing Tizi n'Mzik into the beautiful Azzaden Valley. Comfortable village accommodation, mule support, and an adaptable pace make it an approachable introduction to mountain trekking.",
+    seoTitle: "3-Day Family Atlas Trek: Imlil to Ouirgane",
+    seoDescription: "A three-day family trek from Imlil through Tizi n'Mzik and the Azzaden Valley to Ouirgane, with a guide, mule support, meals, and gîte stays.",
+    difficulty: "Moderate",
+    maxElevation: "2,489m (8,166 ft)",
+    startLocation: "Marrakech",
+    endLocation: "Ouirgane",
+    startingPrice: 190,
+    imageSrc: cloudinaryImage("af5d3b3f-71bb-4dfc-9ce6-8ce040fb121b_gnhfwe"),
+    imageAlt: "A family walking through the Azzaden Valley between Imlil and Ouirgane",
+    galleryImages: [
+      {
+        src: cloudinaryImage("8c3a4779-cbae-49f6-a4a3-9e3e97b2b493_bons2v"),
+        alt: "Family trekking scenery between Imlil and the Azzaden Valley"
+      },
+      {
+        src: cloudinaryImage("a106e5bc-c06f-438e-bb1c-90d295cf7141_taoetn"),
+        alt: "High Atlas village landscape on the family trek to Ouirgane"
+      },
+      {
+        src: cloudinaryImage("524b0fa9-f284-4ad6-a5d3-592a31c52eba_di3i5q"),
+        alt: "Mountain trail through the Azzaden Valley"
+      }
+    ],
+    highlights: [
+      "Enjoy an easy first afternoon exploring Imlil and its surrounding trails",
+      "Cross Tizi n'Mzik Pass (2,489m) for panoramic High Atlas views",
+      "Descend through juniper forest into the spectacular Azzaden Valley",
+      "Walk between traditional villages, terraced fields, and peaceful mountain scenery",
+      "Follow a family-friendly pace adapted to children"
+    ],
+    inclusions: [
+      "English-speaking mountain guide",
+      "Mule for carrying the main luggage",
+      "One night in Imlil",
+      "One night in the Azzaden Valley",
+      "Comfortable accommodation, with private bathrooms where available",
+      "Full board during the trekking days",
+      "All meals mentioned in the itinerary",
+      "Family-friendly pace adapted to the children"
+    ],
+    exclusions: [
+      "Travel insurance covering mountain walking",
+      "Personal drinks, snacks, and purchases",
+      "Tips for the guide and muleteer team",
+      "Personal trekking clothing, footwear, and equipment"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 400 },
+      { groupSize: 2, pricePerPerson: 250 },
+      { groupSize: 3, pricePerPerson: 250 },
+      { groupSize: 4, pricePerPerson: 190 },
+      { groupSize: 5, pricePerPerson: 190 },
+      { groupSize: 6, pricePerPerson: 190 }
+    ],
+    packingList: [
+      "Comfortable hiking boots or shoes with reliable grip",
+      "Small daypack and reusable water bottles",
+      "Light waterproof jacket and a warm evening layer",
+      "Sun hat, sunglasses, and high-SPF sunscreen",
+      "Trekking poles for the pass descent",
+      "Personal toiletries and a lightweight travel towel",
+      "Comfortable layers suitable for children",
+      "Warmer clothing for spring, autumn, and winter departures"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – Imlil – Imlil Village",
+        description: "Arrive in Imlil, the gateway to the High Atlas Mountains. After settling into your comfortable accommodation, enjoy a relaxed afternoon exploring the village and its surrounding trails. This first day is designed as an easy introduction to the mountains, particularly suitable for families travelling with children.",
+        meals: "Dinner; breakfast the following morning",
+        accommodation: "Comfortable gîte in Imlil"
+      },
+      {
+        day: 2,
+        title: "Imlil – Tizi n'Mzik – Azzaden Valley – Tizi Oussem",
+        description: "After breakfast, meet your English-speaking guide and begin your trek from Imlil. The trail climbs gradually towards Tizi n'Mzik Pass (2,489m), with beautiful panoramic views over the High Atlas. From the pass, descend through juniper forests into the spectacular Azzaden Valley, passing traditional Berber villages and mountain landscapes. Continue to Tizi Oussem, where you will have dinner and spend the night in a comfortable gîte.",
+        walkingTime: "Approximately 5 - 6 hours",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Comfortable gîte in Tizi Oussem"
+      },
+      {
+        day: 3,
+        title: "Tizi Oussem – Aït Aïssa – Ouirgane",
+        description: "After breakfast, continue through the beautiful Azzaden Valley, passing traditional villages, terraced fields, and peaceful mountain landscapes. From Aït Aïssa, continue towards Ouirgane, enjoying the scenery along the way. Arrive in Ouirgane in the afternoon, where the trek ends.",
+        walkingTime: "Approximately 5 - 6 hours",
+        meals: "Breakfast, Lunch",
+        accommodation: "None (trek ends in Ouirgane)"
       }
     ]
   }

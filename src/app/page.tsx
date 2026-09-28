@@ -1,448 +1,292 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, CalendarDays, Compass, ExternalLink, ShieldCheck, HeartHandshake, MapPin, Award, Star, PhoneCall } from "lucide-react";
-import { treks } from "./data/treks";
-import { blogPosts } from "./data/blog";
-import { TrekCard } from "./components/TrekCard";
-import { ReviewSlider } from "./components/ReviewSlider";
-import { JsonLd } from "./components/JsonLd";
-import { aggregateRating } from "./data/reviews";
 import {
-  contactPhoneDisplay,
-  googleMapsUrl,
-  tripAdvisorUrl,
-  whatsappUrl,
-} from "./data/contact";
+  ArrowRight,
+  Award,
+  BookOpen,
+  Check,
+  Compass,
+  ExternalLink,
+  HeartHandshake,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+  Star,
+} from "lucide-react";
+import { TrekCard } from "./components/TrekCard";
+import { JsonLd } from "./components/JsonLd";
+import { blogPosts } from "./data/blog";
+import { googleMapsUrl, tripAdvisorUrl, whatsappUrl } from "./data/contact";
+import { aggregateRating, reviews } from "./data/reviews";
+import { treks } from "./data/treks";
 
 export const metadata: Metadata = {
+  title: "Mount Toubkal Treks & High Atlas Tours | Local Imlil Guides",
+  description:
+    "Book private Mount Toubkal climbs and High Atlas trekking tours with licensed local guides from Imlil. Clear itineraries, group prices and Marrakech transfers.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Mount Toubkal Treks with Local Imlil Guides",
+    description:
+      "Private Toubkal climbs, Berber valley walks and longer High Atlas adventures led by a licensed local team.",
+    url: "/",
+    images: [
+      {
+        url: "/toubkal-hero.webp",
+        width: 1254,
+        height: 836,
+        alt: "Mount Toubkal trekking in Morocco's High Atlas Mountains",
+      },
+    ],
+  },
 };
 
+const reasons = [
+  {
+    icon: Award,
+    title: "Born in the High Atlas",
+    text: "A local Amazigh team from Imlil and the surrounding valleys—not a distant booking desk.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Licensed mountain guides",
+    text: "Safety-led pacing, seasonal route decisions and practical support from first message to return.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Private, flexible trips",
+    text: "Dates, walking pace and route options shaped around your group, experience and the weather.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Do I need a guide to climb Mount Toubkal?",
+    answer:
+      "A licensed local guide is required on the standard Toubkal approach, with checks operating on the route above Imlil.",
+  },
+  {
+    question: "Which trek is best for a first visit?",
+    answer:
+      "Choose the Imlil day hike for a gentle introduction, the two-day Toubkal climb if you are fit and short on time, or a three-day route for a steadier experience.",
+  },
+  {
+    question: "Are Marrakech transfers included?",
+    answer:
+      "Most multi-day Toubkal packages include private pickup and return from Marrakech. Every tour page lists the exact inclusions clearly.",
+  },
+  {
+    question: "Can Mount Toubkal be climbed in winter?",
+    answer:
+      "Yes, but snow and ice can make it a mountaineering objective. Winter trips require suitable equipment, a weather-led plan and appropriate fitness.",
+  },
+];
+
 export default function Home() {
-  const heroTrek = treks.find((trek) => trek.slug === "2-day-toubkal-trek") ?? treks[0];
-  const planningGuides = blogPosts.slice(-3).reverse();
-
-  const trekPaths = [
-    {
-      eyebrow: "1 day \u00b7 Easy",
-      title: "A gentle Atlas introduction",
-      desc: "Village paths, waterfalls, and lunch in Imlil without a summit push.",
-      href: "/treks/1-day-imlil-valley-tour",
-      cta: "See the day walk",
-    },
-    {
-      eyebrow: "2 days \u00b7 Challenging",
-      title: "Climb Mount Toubkal",
-      desc: "The direct summit route for fit hikers who are comfortable with altitude.",
-      href: "/treks/2-day-toubkal-trek",
-      cta: "See the summit climb",
-    },
-    {
-      eyebrow: "2 days \u00b7 Moderate",
-      title: "Walk through Berber valleys",
-      desc: "A quieter village-to-village trek for scenery, culture, and a steadier pace.",
-      href: "/treks/2-day-azzaden-valley-berber-villages",
-      cta: "See the valley trek",
-    },
-    {
-      eyebrow: "5\u20136 days \u00b7 Strenuous",
-      title: "Go deeper into the mountains",
-      desc: "High passes and remote camps for experienced walkers seeking a full expedition.",
-      href: "/treks/5-day-mgoun-trek",
-      cta: "See the M\u2019goun trek",
-    },
-  ];
-
-  const whyUs = [
-    {
-      icon: <Award className="h-6 w-6 text-brand-terracotta" />,
-      title: "100% Local Berber Team",
-      desc: "Guides, cooks, and muleteers from the valleys. Your booking stays with local families.",
-    },
-    {
-      icon: <ShieldCheck className="h-6 w-6 text-brand-terracotta" />,
-      title: "Licensed & Safety-First",
-      desc: "Licensed guides, steady pacing, and routes chosen for the weather and the group.",
-    },
-    {
-      icon: <HeartHandshake className="h-6 w-6 text-brand-terracotta" />,
-      title: "Tailored & Flexible Walks",
-      desc: "Private climbs, family walks, and flexible dates. We shape the route around you.",
-    },
-  ];
-
-  const faqItems = [
-      {
-        q: "Is a guide mandatory for Mount Toubkal?",
-        a: "Yes. A licensed local guide is required on Toubkal. There are checkpoints on the trail, and guide papers are checked.",
-      },
-      {
-        q: "When is the best season to trek in the High Atlas?",
-        a: "May to October is easiest: warmer days and fewer snow problems. Winter is beautiful, but you need crampons, warm layers, and a slower plan.",
-      },
-      {
-        q: "How do we handle altitude sickness (AMS)?",
-        a: "We walk slow, drink often, and do not rush the mountain. For better acclimatization, choose the 3-day route or the 6-day circuit.",
-      },
-      {
-        q: "What meals are included during the treks?",
-        a: "Meals are included on trek days. Expect tagine, pasta, bread, salads, fruit, and mint tea. Tell us early about vegetarian, vegan, or gluten-free needs.",
-    },
-  ];
+  const featuredGuides = blogPosts.slice(-3).reverse();
+  const visibleReviews = reviews.slice(0, 3);
 
   return (
     <>
       <JsonLd />
-      <main className="min-h-screen">
-        
-        {/* Hero Section */}
-        <section className="relative flex min-h-[74svh] items-center justify-center overflow-hidden bg-slate-700 pt-24 text-white md:min-h-[90vh]">
-          <div className="absolute inset-0">
-            <Image
-              src="/toubkal-hero.webp"
-              alt={heroTrek.imageAlt}
-              fill
-              priority
-              fetchPriority="high"
-              sizes="100vw"
-              quality={60}
-              className="h-full w-full object-cover opacity-75"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-slate-950/35 to-brand-slate/70" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(217,119,6,0.1),transparent_42%)]" />
-          </div>
+      <main className="min-h-screen bg-white">
+        <section className="relative isolate flex min-h-[76svh] items-center overflow-hidden bg-brand-slate pb-24 pt-28 text-white md:min-h-[88vh] md:pb-32">
+          <Image
+            src="/toubkal-hero.webp"
+            alt="Trekkers approaching Mount Toubkal in Morocco's High Atlas Mountains"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            quality={60}
+            className="-z-20 object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-brand-slate/75 to-brand-slate/25" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-slate/80 via-transparent to-slate-950/20" />
 
-          <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-terracotta/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-brand-terracotta mb-6">
-              <Compass className="h-4 w-4 animate-spin-slow" />
-              Imlil Valley&apos;s Premier Mountain Guides
-            </span>
-            <h1 className="text-4xl font-black uppercase tracking-normal sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-[1.2] text-white">
-              Magical High Atlas <span className="text-brand-terracotta">Trekking Tours</span>
-            </h1>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="#treks"
-                className="w-full sm:w-auto rounded-xl bg-brand-terracotta px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-brand-terracotta-dark hover:scale-105"
-              >
-                Explore All Treks
-              </Link>
-              <Link
-                href="/treks"
-                className="w-full sm:w-auto rounded-xl border border-slate-400 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-brand-slate hover:scale-105"
-              >
-                Browse All Tours
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Introduction and review trust signals */}
-        <section aria-labelledby="homepage-introduction" className="border-b border-slate-100 bg-white py-12 sm:py-14">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-            <h2 id="homepage-introduction" className="text-2xl font-black uppercase tracking-tight text-brand-slate sm:text-3xl">
-              Local High Atlas Treks, From Planning to Summit
-            </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Discover guided Mount Toubkal climbs, Berber valley walks, multi-day High Atlas treks, practical planning guides, and private itineraries led by our local Imlil team.
-            </p>
-            <div className="mx-auto mt-6 flex max-w-3xl flex-col items-center justify-center gap-3 text-sm sm:flex-row sm:flex-wrap">
-              <span className="inline-flex items-center gap-2 font-semibold text-brand-slate">
-                <span className="flex" aria-hidden="true">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </span>
-                Trusted by hundreds of trekkers
-              </span>
-              <span className="hidden text-slate-300 sm:inline" aria-hidden="true">\u2022</span>
-              <a
-                href={googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-bold text-brand-slate underline decoration-slate-300 underline-offset-4 transition-colors hover:text-brand-terracotta"
-              >
-                Google reviews <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-              <span className="hidden text-slate-300 sm:inline" aria-hidden="true">\u2022</span>
-              <a
-                href={tripAdvisorUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-bold text-brand-slate underline decoration-slate-300 underline-offset-4 transition-colors hover:text-brand-terracotta"
-              >
-                {aggregateRating.ratingValue} on Tripadvisor ({aggregateRating.reviewCount} reviews)
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Value Props Row */}
-        <section className="relative z-10 mx-4 max-w-7xl rounded-2xl border-y border-slate-100 bg-white py-10 shadow-[0_24px_80px_rgba(28,45,55,0.04)] lg:mx-auto">
-          <div className="mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <h2 className="sr-only">Why trek with our local Imlil team</h2>
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-terracotta/10 text-brand-terracotta shrink-0">
-                <Compass className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Local Experts</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Native Berber guiding crew from Imlil</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 md:border-x md:border-slate-100 md:px-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-terracotta/10 text-brand-terracotta shrink-0">
-                <ShieldCheck className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Certified Guides</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Fully licensed mountain professionals</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-terracotta/10 text-brand-terracotta shrink-0">
-                <Star className="h-6 w-6 text-brand-terracotta" />
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Hassle-Free</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Transparent group rates & custom support</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* All trekking tours */}
-        <section id="treks" aria-labelledby="treks-heading" className="deferred-section scroll-mt-24 bg-background py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto mb-12 max-w-3xl text-center">
-              <h2 id="treks-heading" className="text-xs font-black uppercase tracking-[0.25em] text-brand-terracotta">High Atlas Adventures</h2>
-              <p className="mt-3 text-3xl font-black uppercase tracking-tight text-brand-slate sm:text-4xl">
-                Choose Your Trek
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.2em] text-amber-200 backdrop-blur-sm">
+                <MapPin className="h-4 w-4" aria-hidden="true" /> Local guides based in Imlil, Morocco
               </p>
-              <div className="mx-auto mt-4 h-1 w-12 bg-brand-terracotta" />
-              <p className="mt-4 text-base text-slate-600">
-                Explore every route: summit climbs, quiet Berber valleys, day walks, and longer journeys through the High Atlas.
+              <h1 className="mt-6 text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-7xl">
+                Mount Toubkal &amp; High Atlas Treks
+                <span className="mt-2 block text-brand-terracotta">Led by Local Mountain Guides</span>
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
+                Private summit climbs, Berber valley walks and multi-day mountain journeys—with clear prices, honest route advice and optional Marrakech transfers.
               </p>
-            </div>
 
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
-              {treks.map((trek) => (
-                <TrekCard key={trek.slug} trek={trek} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Guided route finder */}
-        <section id="find-your-trek" aria-labelledby="trek-finder-heading" className="deferred-section scroll-mt-24 border-t border-slate-100 bg-slate-50 py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto mb-12 max-w-3xl text-center">
-              <h2 id="trek-finder-heading" className="text-xs font-black uppercase tracking-[0.25em] text-brand-terracotta">
-                Start with what suits you
-              </h2>
-              <p className="mt-3 text-3xl font-black uppercase tracking-tight text-brand-slate sm:text-4xl">
-                Find Your High Atlas Trek
-              </p>
-              <div className="mx-auto mt-4 h-1 w-12 bg-brand-terracotta" />
-              <p className="mt-4 text-base leading-relaxed text-slate-600">
-                Choose by time, pace, and the kind of experience you want. Each page shows the full route, inclusions, and group price.
-              </p>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {trekPaths.map((path) => (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  key={path.href}
-                  href={path.href}
-                  className="group flex min-h-64 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-terracotta/50 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terracotta"
+                  href="#treks"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-terracotta px-7 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-lg transition-colors hover:bg-brand-terracotta-dark"
                 >
-                  <span className="text-xs font-black uppercase tracking-[0.16em] text-brand-terracotta">{path.eyebrow}</span>
-                  <h3 className="mt-4 text-xl font-black leading-tight text-brand-slate">{path.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{path.desc}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-black uppercase tracking-wider text-brand-slate group-hover:text-brand-terracotta">
-                    {path.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </span>
+                  Compare all treks <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-col items-center justify-between gap-5 rounded-2xl bg-brand-slate px-6 py-6 text-center text-white sm:flex-row sm:text-left">
-              <div>
-                <p className="font-bold">Still deciding between routes?</p>
-                <p className="mt-1 text-sm text-slate-300">Tell our Imlil team your dates, experience, and group size.</p>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/35 bg-white/10 px-7 py-3.5 text-sm font-black uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-brand-slate"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" /> Ask a local guide
+                </a>
               </div>
-              <Link href="/contact" className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-brand-terracotta px-6 py-3 text-xs font-black uppercase tracking-wider text-white transition-colors hover:bg-brand-terracotta-dark">
-                Ask a Local Guide
-              </Link>
+
+              <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-slate-100">
+                {[
+                  "Licensed guides",
+                  "Private groups",
+                  "Transparent pricing",
+                ].map((item) => (
+                  <li key={item} className="inline-flex items-center gap-2">
+                    <Check className="h-4 w-4 text-amber-300" aria-hidden="true" /> {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Why Book With Us (Detailed) */}
-        <section className="deferred-section relative overflow-hidden bg-brand-slate py-24 text-white">
-          <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-            <Image src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=75&w=600&auto=format" alt="Mount Toubkal trekking silhouette in the High Atlas Mountains" width={500} height={333} sizes="500px" className="w-[500px]" />
-          </div>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1fr] gap-16 items-center">
+        <section aria-label="Traveller ratings and local credentials" className="relative z-10 -mt-14 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.14)] md:grid-cols-[1.25fr_1fr_1fr]">
+            <div className="flex items-center gap-4 p-6 sm:p-7">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-amber-500">
+                <Star className="h-6 w-6 fill-current" aria-hidden="true" />
+              </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">Berber Guiding Heritage</span>
-                <h2 className="mt-2 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
-                  True Mountain Hospitality
-                </h2>
-                <div className="h-1 w-12 bg-brand-terracotta mt-4 mb-6" />
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  We are not a desk agency far from the trail. We are guides, cooks, and muleteers from the mountain villages around Imlil. 
-                  <br /><br />
-                  These paths are our home ground: walnut valleys, high passes, stone villages, and the dry ridges that look toward the desert. We keep the pace honest and the welcome simple.
-                </p>
-                <div className="mt-8 flex gap-4">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-brand-terracotta" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Based in Imlil</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="h-4 w-4 text-brand-terracotta" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Licensed in Morocco</span>
-                  </div>
+                <p className="text-lg font-black text-brand-slate">{aggregateRating.ratingValue}/5 from {aggregateRating.reviewCount} reviews</p>
+                <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs font-bold">
+                  <a href={tripAdvisorUrl} target="_blank" rel="noopener noreferrer" className="text-[#006B54] hover:underline">Tripadvisor reviews</a>
+                  <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">Google reviews</a>
                 </div>
               </div>
+            </div>
+            <div className="flex items-center gap-3 border-t border-slate-200 p-6 md:border-l md:border-t-0">
+              <ShieldCheck className="h-7 w-7 shrink-0 text-brand-terracotta" aria-hidden="true" />
+              <div><p className="font-black text-brand-slate">Licensed &amp; safety-led</p><p className="mt-1 text-xs text-slate-600">Season-aware mountain planning</p></div>
+            </div>
+            <div className="flex items-center gap-3 border-t border-slate-200 p-6 md:border-l md:border-t-0">
+              <Compass className="h-7 w-7 shrink-0 text-brand-terracotta" aria-hidden="true" />
+              <div><p className="font-black text-brand-slate">100% local team</p><p className="mt-1 text-xs text-slate-600">Guides, cooks and muleteers</p></div>
+            </div>
+          </div>
+        </section>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
-                {whyUs.map((prop, idx) => (
-                  <div key={idx} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 mb-4">
-                      {prop.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-white tracking-tight">{prop.title}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-300">{prop.desc}</p>
-                  </div>
+        <section id="treks" aria-labelledby="treks-heading" className="scroll-mt-24 bg-slate-50/70 py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Seven ways into the mountains</p>
+              <h2 id="treks-heading" className="mt-3 text-3xl font-black tracking-tight text-brand-slate sm:text-5xl">Choose your High Atlas trek</h2>
+              <p className="mt-4 text-base leading-relaxed text-slate-600">Compare duration, difficulty, highest point and price. Open any route for the day-by-day itinerary and full inclusions.</p>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-2">
+              {treks.map((trek) => <TrekCard key={trek.slug} trek={trek} />)}
+            </div>
+            <div className="mt-10 text-center">
+              <Link href="/treks" className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-brand-slate px-6 py-3 text-xs font-black uppercase tracking-wider text-brand-slate transition-colors hover:bg-brand-slate hover:text-white">
+                Open the trek comparison page <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Why walk with us</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight text-brand-slate sm:text-5xl">Mountain knowledge, without agency distance</h2>
+                <p className="mt-5 text-base leading-relaxed text-slate-600">We plan and guide from Imlil, at the foot of the routes we sell. That means direct answers about snow, fitness, refuge conditions, pacing and what actually suits your dates.</p>
+                <Link href="/about" className="mt-7 inline-flex items-center gap-2 text-sm font-black text-brand-terracotta hover:underline">Meet the local team <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-3">
+                {reasons.map(({ icon: Icon, title, text }) => (
+                  <article key={title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-slate text-amber-300"><Icon className="h-5 w-5" aria-hidden="true" /></div>
+                    <h3 className="mt-5 font-black leading-snug text-brand-slate">{title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
+                  </article>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Customer Reviews Slider */}
-        <section className="deferred-section bg-white py-24">
+        <section aria-labelledby="reviews-heading" className="bg-brand-slate py-20 text-white sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-xs font-black uppercase tracking-[0.25em] text-brand-terracotta">Reviews & Feedback</h2>
-              <p className="mt-3 text-3xl font-black uppercase tracking-tight text-brand-slate sm:text-4xl">
-                What Our Trekkers Say
-              </p>
-              <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-amber-300">Independent traveller feedback</p>
+                <h2 id="reviews-heading" className="mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">What trekkers remember</h2>
+              </div>
+              <a href={tripAdvisorUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 self-start text-sm font-black text-amber-300 hover:underline md:self-auto">Read all Tripadvisor reviews <ExternalLink className="h-4 w-4" aria-hidden="true" /></a>
             </div>
-            <ReviewSlider />
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {visibleReviews.map((review) => (
+                <figure key={review.name} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <div className="flex gap-1 text-amber-300" role="img" aria-label={`${review.rating} out of 5 stars`}>
+                    {Array.from({ length: review.rating }).map((_, index) => <Star key={index} className="h-4 w-4 fill-current" aria-hidden="true" />)}
+                  </div>
+                  <blockquote className="mt-5 line-clamp-6 text-sm leading-relaxed text-slate-200">“{review.text}”</blockquote>
+                  <figcaption className="mt-6 border-t border-white/10 pt-4"><p className="font-black text-white">{review.name}</p><p className="mt-1 text-xs text-slate-400">{review.trek} · {review.source}</p></figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Planning guides */}
-        <section aria-labelledby="planning-guides-heading" className="deferred-section border-t border-slate-100 bg-white py-24">
+        <section aria-labelledby="guides-heading" className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div className="max-w-3xl">
-                <h2 id="planning-guides-heading" className="text-xs font-black uppercase tracking-[0.25em] text-brand-terracotta">Plan Before You Book</h2>
-                <p className="mt-3 text-3xl font-black uppercase tracking-tight text-brand-slate sm:text-4xl">Local Trekking Guides</p>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">Practical answers about weather, fitness, routes, and winter conditions from a team based beside the trails.</p>
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div className="max-w-2xl">
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Plan with local knowledge</p>
+                <h2 id="guides-heading" className="mt-3 text-3xl font-black tracking-tight text-brand-slate sm:text-5xl">Answers before the trail</h2>
+                <p className="mt-4 text-slate-600">Useful guides about fitness, seasons, winter equipment and choosing the right route.</p>
               </div>
-              <Link href="/blog" className="inline-flex min-h-11 items-center gap-2 self-start rounded-xl border border-brand-slate px-5 py-3 text-xs font-black uppercase tracking-wider text-brand-slate transition-colors hover:bg-brand-slate hover:text-white md:self-auto">
-                View all guides <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              <Link href="/blog" className="inline-flex min-h-11 items-center gap-2 self-start rounded-xl border border-brand-slate px-5 py-3 text-xs font-black uppercase tracking-wider text-brand-slate hover:bg-brand-slate hover:text-white md:self-auto">All planning guides <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
             </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {planningGuides.map((post) => (
-                <article key={post.slug} className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500">
-                    <BookOpen className="h-4 w-4 text-brand-terracotta" aria-hidden="true" />
-                    <span>{post.eyebrow}</span>
-                  </div>
-                  <h3 className="mt-4 text-xl font-black leading-snug text-brand-slate">
-                    <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-brand-terracotta">{post.title}</Link>
-                  </h3>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {featuredGuides.map((post) => (
+                <article key={post.slug} className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-colors hover:border-brand-terracotta/40">
+                  <BookOpen className="h-6 w-6 text-brand-terracotta" aria-hidden="true" />
+                  <p className="mt-5 text-[10px] font-black uppercase tracking-[0.18em] text-slate-500">{post.eyebrow} · {post.readTime}</p>
+                  <h3 className="mt-3 text-xl font-black leading-snug text-brand-slate group-hover:text-brand-terracotta"><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">{post.description}</p>
-                  <div className="mt-auto flex items-center justify-between gap-4 pt-6">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-                      <CalendarDays className="h-4 w-4" aria-hidden="true" /> {post.readTime}
-                    </span>
-                    <Link href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`} className="inline-flex items-center gap-1 text-xs font-black uppercase tracking-wider text-brand-terracotta">
-                      Read guide <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </div>
+                  <Link href={`/blog/${post.slug}`} className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-black uppercase tracking-wider text-brand-terracotta">Read guide <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="deferred-section border-t border-slate-100 bg-slate-50 py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-xs font-black uppercase tracking-[0.25em] text-brand-terracotta">Pre-Booking support</h2>
-              <p className="text-3xl font-black uppercase tracking-tight text-brand-slate mt-3">
-                Frequently Asked Questions
-              </p>
-              <div className="h-1 w-12 bg-brand-terracotta mx-auto mt-4" />
+        <section aria-labelledby="faq-heading" className="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.65fr_1.35fr] lg:px-8">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Quick planning answers</p>
+              <h2 id="faq-heading" className="mt-3 text-3xl font-black tracking-tight text-brand-slate sm:text-4xl">Before you book</h2>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">Need a route recommendation for your dates? Send your group size and hiking experience.</p>
+              <Link href="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-brand-terracotta hover:underline">Ask your question <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
             </div>
-
-            <div className="grid gap-6">
-              {faqItems.map((item, idx) => (
-                <div key={idx} className="rounded-2xl border border-slate-100 bg-white p-6 md:p-8 shadow-[0_4px_30px_rgba(28,45,55,0.01)]">
-                  <h3 className="text-base font-extrabold text-slate-800 uppercase tracking-wide flex items-start gap-2.5">
-                    <span className="text-brand-terracotta">Q:</span>
-                    <span>{item.q}</span>
-                  </h3>
-                  <p className="mt-3 text-sm text-slate-500 leading-relaxed pl-6 border-l border-brand-terracotta/20">
-                    {item.a}
-                  </p>
-                </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {faqItems.map((item) => (
+                <article key={item.question} className="rounded-2xl border border-slate-200 bg-white p-6">
+                  <h3 className="font-black leading-snug text-brand-slate">{item.question}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Call to Action (Inquiry) */}
-        <section className="deferred-section relative overflow-hidden border-t border-brand-slate-light bg-brand-slate py-20 text-white">
-          <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight leading-tight">
-              Ready to Begin Your High Atlas Journey?
-            </h2>
-            <p className="mt-4 text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed">
-              Send your dates and group size. We will tell you what works, what to pack, and which route fits the season.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto rounded-xl bg-brand-terracotta px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-brand-terracotta-dark hover:scale-105"
-              >
-                Inquire & Book Now
-              </Link>
-              <Link
-                href="/faq"
-                className="w-full sm:w-auto rounded-xl border border-slate-500 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-brand-slate"
-              >
-                Read Trek FAQs
-              </Link>
-            </div>
-            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-emerald-100 transition-colors duration-200 hover:bg-emerald-500/20 sm:w-auto"
-              >
-                <PhoneCall className="h-4 w-4" />
-                <span>{contactPhoneDisplay}</span>
-              </a>
-            </div>
+        <section className="bg-brand-terracotta px-4 py-16 text-white sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-7 text-center md:flex-row md:text-left">
+            <div><p className="text-2xl font-black sm:text-3xl">Not sure which High Atlas route fits?</p><p className="mt-2 text-sm text-orange-50">Tell us your dates, group and experience. A local guide will answer directly.</p></div>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-black uppercase tracking-wider text-brand-slate shadow-lg hover:bg-slate-100"><MessageCircle className="h-5 w-5" aria-hidden="true" /> Plan on WhatsApp</a>
           </div>
         </section>
-
       </main>
     </>
   );

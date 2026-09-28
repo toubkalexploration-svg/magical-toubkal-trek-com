@@ -9,8 +9,8 @@ type TrekCardProps = {
 
 export function TrekCard({ trek }: TrekCardProps) {
   const difficultyColors = {
-    Easy: "bg-emerald-500 text-white",
-    Moderate: "bg-sky-600 text-white",
+    Easy: "bg-emerald-700 text-white",
+    Moderate: "bg-sky-700 text-white",
     Challenging: "bg-amber-500 text-slate-950",
     Strenuous: "bg-rose-600 text-white",
   };
@@ -22,7 +22,6 @@ export function TrekCard({ trek }: TrekCardProps) {
       <Link
         href={`/treks/${trek.slug}`}
         className="relative block aspect-[16/10] w-full overflow-hidden bg-slate-100 focus-visible:outline-none"
-        aria-label={`View ${trek.title}`}
       >
         <Image
           src={trek.imageSrc}

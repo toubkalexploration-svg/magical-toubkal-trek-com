@@ -27,22 +27,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: trek.title,
-    description: `${trek.summary} From €${trek.startingPrice} per person with a licensed local Imlil guide.`.slice(0, 160),
+    title: trek.seoTitle ?? trek.title,
+    description: trek.seoDescription ?? `${trek.summary} From €${trek.startingPrice} per person with a licensed local Imlil guide.`.slice(0, 160),
     alternates: {
       canonical: `/treks/${trek.slug}`,
     },
     openGraph: {
-      title: `${trek.title} | Magical Toubkal Trek`,
-      description: trek.subtitle,
+      title: trek.seoTitle ?? trek.title,
+      description: trek.seoDescription ?? trek.subtitle,
       url: `/treks/${trek.slug}`,
       type: "website",
       images: [{ url: trek.imageSrc, alt: trek.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: trek.title,
-      description: trek.subtitle,
+      title: trek.seoTitle ?? trek.title,
+      description: trek.seoDescription ?? trek.subtitle,
       images: [trek.imageSrc],
     },
   };
@@ -137,7 +137,7 @@ export default async function TrekDetail({ params }: Props) {
                   {trek.difficulty}
                 </span>
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                  Peak Altitude: {trek.maxElevation}
+                  Highest Point: {trek.maxElevation}
                 </span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase text-brand-slate tracking-tight leading-[1.1]">
@@ -197,11 +197,34 @@ export default async function TrekDetail({ params }: Props) {
               <p className="text-sm text-slate-600 leading-relaxed">
                 {trek.summary}
               </p>
+              {trek.galleryImages && trek.galleryImages.length > 0 && (
+                <div
+                  aria-label={`${trek.title} photo gallery`}
+                  className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2"
+                  role="region"
+                  tabIndex={0}
+                >
+                  {trek.galleryImages.map((photo) => (
+                    <div
+                      key={photo.src}
+                      className="relative aspect-[4/3] w-[78%] shrink-0 snap-start overflow-hidden rounded-xl bg-slate-100 sm:w-[46%] lg:w-[31%]"
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="(max-width: 640px) 78vw, (max-width: 1024px) 46vw, 22vw"
+                        className="object-cover transition-transform duration-500 hover:scale-[1.03] motion-reduce:transform-none"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Highlights */}
             <div className="space-y-4">
-              <h2 className="text-xl font-bold uppercase tracking-wider text-brand-slate">Climb Highlights</h2>
+              <h2 className="text-xl font-bold uppercase tracking-wider text-brand-slate">Tour Highlights</h2>
               <ul className="grid gap-3 sm:grid-cols-2">
                 {trek.highlights.map((hl, idx) => (
                   <li key={idx} className="flex gap-2.5 items-start text-sm text-slate-600">

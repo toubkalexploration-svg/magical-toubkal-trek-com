@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.magical-toubkal-trek.com";
-  const siteUpdatedAt = new Date("2026-08-06");
+  const siteUpdatedAt = new Date("2026-09-28");
 
   // Core static pages
   const staticPages = ["", "/treks", "/blog", "/gear-list", "/faq", "/about", "/contact"].map((route) => ({
