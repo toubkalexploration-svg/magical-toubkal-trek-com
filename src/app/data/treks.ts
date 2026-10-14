@@ -22,6 +22,7 @@ export type Trek = {
   summary: string;
   seoTitle?: string;
   seoDescription?: string;
+  touristType?: string;
   difficulty: "Easy" | "Moderate" | "Challenging" | "Strenuous";
   maxElevation: string;
   startLocation: string;
@@ -822,6 +823,88 @@ export const treks: Trek[] = [
         walkingTime: "Approximately 5 - 6 hours",
         meals: "Breakfast, Lunch",
         accommodation: "None (trek ends in Ouirgane)"
+      }
+    ]
+  },
+  {
+    slug: "3-day-merzouga-desert-tour-from-marrakech",
+    title: "3-Day Merzouga Desert Tour from Marrakech",
+    duration: "3 Days",
+    subtitle: "Cross the High Atlas to Aït Benhaddou, Dades Valley, Todra Gorge, and the dunes of Merzouga.",
+    summary: "Travel from Marrakech to the edge of the Sahara on a private three-day journey through southern Morocco. Visit the UNESCO-listed ksar of Aït Benhaddou, spend a night in the Dades Valley, walk beneath the cliffs of Todra Gorge, then ride camels across the Erg Chebbi dunes for an overnight stay in a Merzouga desert camp.",
+    seoTitle: "3-Day Merzouga Desert Tour from Marrakech",
+    seoDescription: "Book a private 3-day Marrakech to Merzouga desert tour with Aït Benhaddou, Dades Valley, Todra Gorge, camel rides, and an overnight Sahara camp.",
+    touristType: "Couples, families, photographers, and culture-focused travellers",
+    difficulty: "Easy",
+    maxElevation: "2,260m (Tizi n'Tichka)",
+    startLocation: "Marrakech (Hotel pickup)",
+    endLocation: "Marrakech (Hotel drop-off)",
+    startingPrice: 190,
+    imageSrc: "/merzouga-dunes-cc0.jpg",
+    imageAlt: "Golden Erg Chebbi dunes near Merzouga on a three-day desert tour from Marrakech",
+    highlights: [
+      "Cross the High Atlas Mountains over the panoramic Tizi n'Tichka pass",
+      "Explore the UNESCO-listed fortified village of Aït Benhaddou",
+      "Spend one night in the dramatic Dades Valley",
+      "Walk through Todra Gorge beneath its towering canyon walls",
+      "Ride camels across the Erg Chebbi dunes at sunset",
+      "Sleep in a Merzouga desert camp beneath the Sahara sky"
+    ],
+    inclusions: [
+      "Private air-conditioned transport with an experienced driver",
+      "Pickup from and return to your Marrakech hotel or riad",
+      "One night in a hotel or guesthouse in the Dades Valley",
+      "One night in a Merzouga desert camp",
+      "Breakfasts and dinners during the tour",
+      "Camel rides to and from the desert camp",
+      "Scheduled visits to Aït Benhaddou, Dades Valley, and Todra Gorge",
+      "Entrance fees for the visits mentioned in the itinerary",
+      "Fuel and road costs"
+    ],
+    exclusions: [
+      "Lunches during the three-day tour",
+      "Drinks"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 500 },
+      { groupSize: 2, pricePerPerson: 400 },
+      { groupSize: 3, pricePerPerson: 300 },
+      { groupSize: 4, pricePerPerson: 300 },
+      { groupSize: 5, pricePerPerson: 300 },
+      { groupSize: 6, pricePerPerson: 300 },
+      { groupSize: 7, pricePerPerson: 190 }
+    ],
+    packingList: [
+      "Comfortable walking shoes",
+      "Light layers for warm daytime temperatures",
+      "Warm jacket for the desert evening and early morning",
+      "Sun hat, sunglasses, and high-SPF sunscreen",
+      "Small overnight bag for the desert camp",
+      "Reusable water bottle",
+      "Camera or phone with a portable charger",
+      "Personal toiletries and any required medication"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – High Atlas – Aït Benhaddou – Dades Valley",
+        description: "Leave Marrakech in the morning and cross the High Atlas Mountains via Tizi n'Tichka (2,260m), stopping at panoramic viewpoints along the way. Visit the UNESCO-listed ksar of Aït Benhaddou, a historic fortified village known for its earthen architecture, before continuing through Ouarzazate and the Valley of Roses. Arrive in the Dades Valley for dinner and an overnight stay in a hotel or guesthouse.",
+        meals: "Dinner",
+        accommodation: "Hotel or guesthouse in the Dades Valley"
+      },
+      {
+        day: 2,
+        title: "Dades Valley – Todra Gorge – Erfoud – Merzouga Desert",
+        description: "After breakfast, travel through the changing landscapes of southern Morocco to Todra Gorge. Take time to walk beneath the high canyon walls, then continue through oasis towns and desert country toward Merzouga. At the edge of the Erg Chebbi dunes, meet the camel team and ride across the sand as the light changes over the Sahara. Reach the desert camp for dinner, local music, and a night beneath the stars.",
+        meals: "Breakfast, Dinner",
+        accommodation: "Merzouga desert camp"
+      },
+      {
+        day: 3,
+        title: "Merzouga – Rissani – Ouarzazate – Marrakech",
+        description: "Wake early to watch sunrise over the Erg Chebbi dunes, then enjoy breakfast at the camp. Return from the dunes by camel and begin the journey back to Marrakech. Travel through the desert towns and valleys of southern Morocco, passing Rissani and Ouarzazate before crossing the High Atlas Mountains. Arrive at your Marrakech hotel or riad in the evening, where the tour ends.",
+        meals: "Breakfast",
+        accommodation: "None (return to Marrakech)"
       }
     ]
   }

@@ -76,7 +76,7 @@ export default async function TrekDetail({ params }: Props) {
         image: trek.imageSrc,
         url: trekUrl,
         brand: { "@type": "Brand", name: "Magical Toubkal Trek" },
-        touristType: trek.difficulty === "Easy" ? "Leisure hikers and families" : "Active hikers",
+        touristType: trek.touristType ?? (trek.difficulty === "Easy" ? "Leisure hikers and families" : "Active hikers"),
         itinerary: trek.itinerary.map((day) => ({
           "@type": "ItemList",
           name: `Day ${day.day}: ${day.title}`,
@@ -332,7 +332,7 @@ export default async function TrekDetail({ params }: Props) {
 
             {/* Packing checklist essentials */}
             <div className="bg-slate-100/50 border border-slate-200/50 rounded-2xl p-6 space-y-4">
-              <h3 className="text-base font-bold uppercase tracking-wider text-slate-800">Trek Specific Packing Essentials</h3>
+              <h3 className="text-base font-bold uppercase tracking-wider text-slate-800">Tour Packing Essentials</h3>
               <p className="text-xs text-slate-500">Bring these items first. The rest depends on season and route.</p>
               <ul className="grid gap-2 sm:grid-cols-2 text-xs text-slate-600 font-semibold">
                 {trek.packingList.slice(0, 6).map((item, idx) => (

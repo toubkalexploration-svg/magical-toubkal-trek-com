@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "High Atlas Trekking Tours from Marrakech | Magical Toubkal Trek",
+    default: "Morocco Adventure Tours from Marrakech | Magical Toubkal Trek",
     template: "%s | Magical Toubkal Trek",
   },
   description:
-    "Compare private Mount Toubkal climbs, Berber village hikes, Azzaden and Imenane valley treks, and longer High Atlas routes led by local Imlil guides.",
+    "Compare private Mount Toubkal climbs, High Atlas village treks, and Merzouga desert tours from Marrakech with experienced local guides and drivers.",
   alternates: { canonical: "/treks" },
   openGraph: {
-    title: "High Atlas Trekking Tours | Magical Toubkal Trek",
+    title: "Morocco Adventure Tours | Magical Toubkal Trek",
     description:
-      "Guided Toubkal climbs and High Atlas walking holidays with a local Imlil mountain team.",
+      "Private Mount Toubkal climbs, High Atlas walking holidays, and Merzouga desert tours from Marrakech.",
     url: "/treks",
     type: "website",
   },
