@@ -362,6 +362,116 @@ export const treks: Trek[] = [
     ]
   },
   {
+    slug: "5-day-high-atlas-traverse",
+    title: "5-Day High Atlas Traverse",
+    duration: "5 Days",
+    subtitle: "Imlil – Tachdirt – Oukaïmeden – Matat – Tizi Oussem – Imlil",
+    summary: "Discover the beauty of Morocco's High Atlas Mountains on a five-day trek through traditional Amazigh villages, spectacular mountain passes, green valleys, and remote landscapes. Walking along ancient mule tracks, you will experience local mountain life, enjoy panoramic views, and explore some of the most beautiful areas of the High Atlas.",
+    seoTitle: "5-Day High Atlas Traverse from Imlil",
+    seoDescription: "Trek for five days from Imlil through Tachdirt, Oukaïmeden, Matat, and Tizi Oussem, with a local guide, mountain guesthouses, meals, and mule support.",
+    difficulty: "Challenging",
+    maxElevation: "Approx. 2,960m (Tizi n'Addi)",
+    startLocation: "Imlil",
+    endLocation: "Imlil",
+    startingPrice: 320,
+    imageSrc: cloudinaryImage("40aeb74c-c7d7-4e3a-9bb3-06a0a300b2e7_dr6tv2"),
+    imageAlt: "High Atlas mountain scenery on the five-day traverse from Imlil",
+    galleryImages: [
+      {
+        src: cloudinaryImage("2063ceab-3ec6-4e9a-9f79-010b986f098a_ek7q1q"),
+        alt: "Mountain trail between traditional villages on the High Atlas traverse"
+      },
+      {
+        src: cloudinaryImage("3f5a7513-85f8-4259-a216-86ddd5b403af_ag5hsw"),
+        alt: "Green valley and mountain landscape along the five-day High Atlas route"
+      },
+      {
+        src: cloudinaryImage("c2531c7e-6eef-49c5-aa5a-2bb96893e3f3_zy4i3y"),
+        alt: "Remote High Atlas scenery between Oukaïmeden and Tizi Oussem"
+      }
+    ],
+    highlights: [
+      "Cross scenic mountain passes between the Imlil, Imnane, and Azzaden valleys",
+      "Walk ancient mule tracks through traditional Amazigh villages and terraced fields",
+      "Explore the high plateau and summer pastures around Oukaïmeden",
+      "Experience remote mountain life around Matat and Tizi Oussem",
+      "Finish with panoramic views from Tizi Mzik before descending to Imlil"
+    ],
+    inclusions: [
+      "Experienced local mountain guide",
+      "Four nights of accommodation in mountain guesthouses",
+      "Meals during the trek",
+      "Mule support for luggage, subject to the agreed arrangements",
+      "Trekking organisation and route guidance"
+    ],
+    exclusions: [
+      "Travel insurance covering mountain trekking",
+      "Optional private transfer between Imlil and Marrakech unless arranged in advance",
+      "Personal drinks, snacks, and purchases",
+      "Tips for the guide, muleteer, and guesthouse teams",
+      "Personal trekking clothing and equipment"
+    ],
+    pricingTiers: [
+      { groupSize: 1, pricePerPerson: 620 },
+      { groupSize: 2, pricePerPerson: 420 },
+      { groupSize: 3, pricePerPerson: 370 },
+      { groupSize: 4, pricePerPerson: 340 },
+      { groupSize: 5, pricePerPerson: 320 },
+      { groupSize: 6, pricePerPerson: 300 }
+    ],
+    packingList: [
+      "Comfortable hiking boots with good grip",
+      "Daypack and reusable water bottles",
+      "Warm layers, including a fleece or down jacket",
+      "Waterproof jacket and trousers",
+      "Sun hat, sunglasses, and sunscreen",
+      "Trekking poles",
+      "Headlamp and personal essentials"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Imlil – Tizi n'Tamatert – Tachdirt",
+        description: "Meet your local mountain guide in Imlil and begin your trek through traditional Amazigh villages and terraced fields. Climb gradually towards Tizi n'Tamatert, a scenic mountain pass with beautiful views over the Imlil and Imnane valleys. After enjoying the mountain scenery, descend through Ouanesekra towards Tachdirt, one of the highest traditional villages in the region. Arrive at your guesthouse for a traditional Moroccan dinner in the peaceful mountain surroundings.",
+        walkingTime: "4 - 5 hours",
+        distance: "Approximately 9 - 11 km",
+        elevationChange: "Highest point: approximately 2,279m",
+        meals: "Lunch, Dinner",
+        accommodation: "Guesthouse in Tachdirt"
+      },
+      {
+        day: 2,
+        title: "Tachdirt – Tizi n'Addi – Oukaïmeden",
+        description: "After breakfast, leave Tachdirt and continue across the High Atlas towards Oukaïmeden. Follow mountain trails through rugged terrain, remote settlements, and high-altitude pastures. Depending on the route and weather conditions, cross the Tizi n'Addi area and enjoy magnificent views of the surrounding peaks and valleys. Continue towards the Oukaïmeden plateau, famous for its dramatic mountain scenery and traditional summer pastures.",
+        walkingTime: "Confirmed according to the selected route",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Guesthouse or lodge in Oukaïmeden"
+      },
+      {
+        day: 3,
+        title: "Oukaïmeden – Matat",
+        description: "After breakfast, set off from Oukaïmeden and continue through the varied landscapes of the High Atlas. Follow established mountain paths towards the Matat area, passing traditional villages, cultivated terraces, and beautiful mountain scenery. Enjoy a picnic lunch along the way and take time to appreciate the quiet atmosphere of rural mountain life before settling into your accommodation in the afternoon.",
+        walkingTime: "Confirmed after verifying the route",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Local guesthouse in the Matat area, subject to availability"
+      },
+      {
+        day: 4,
+        title: "Matat – Tizi Oussem",
+        description: "After breakfast, continue towards the beautiful Azzaden Valley, known for its traditional Amazigh villages, terraced fields, walnut trees, and dramatic mountain scenery. Walk along mountain paths connecting remote settlements and enjoy views of the surrounding High Atlas peaks. Take a break for lunch before continuing towards Tizi Oussem, a picturesque village surrounded by cultivated hillsides.",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Guesthouse in Tizi Oussem"
+      },
+      {
+        day: 5,
+        title: "Tizi Oussem – Tizi Mzik – Imlil",
+        description: "After breakfast, leave Tizi Oussem and follow the mountain trail towards Tizi Mzik where the selected route permits. Enjoy panoramic views across the Azzaden Valley and the surrounding High Atlas Mountains. Descend through the mountain paths towards Aroumd and continue to Imlil, where your five-day trek ends. If arranged in advance, a private transfer can take you from Imlil back to Marrakech.",
+        meals: "Breakfast, Lunch",
+        accommodation: "None (trek ends in Imlil; optional transfer to Marrakech)"
+      }
+    ]
+  },
+  {
     slug: "5-day-mgoun-trek",
     title: "5-Day Jebel M'goun Wilderness Trek",
     duration: "5 Days",
