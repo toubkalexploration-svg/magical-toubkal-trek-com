@@ -28,6 +28,7 @@ export type Trek = {
   startLocation: string;
   endLocation: string;
   startingPrice: number;
+  customPrice?: boolean;
   imageSrc: string;
   imageAlt: string;
   galleryImages?: Array<{
@@ -937,6 +938,115 @@ export const treks: Trek[] = [
     ]
   },
   {
+    slug: "4-day-berber-valleys-trek",
+    title: "4-Day Berber Valleys & High Atlas Villages Trek",
+    duration: "4 Days",
+    subtitle: "A scenic traverse through traditional Berber villages, terraced valleys, and high mountain passes.",
+    summary: "Discover the genuine warmth and untouched beauty of the High Atlas on this 4-day guided trek through authentic Berber villages. Starting from Imlil, your path crosses scenic mountain passes including Tizi n’Tamatert, winds through the remote settlements of Tamgist, Tacheddirt, and Matat, and explores the peaceful green valley of Tizi Oussem. With traditional lodge and guesthouse stays, home-cooked tagines, and panoramic alpine views, this route is the perfect immersive Atlas walking holiday.",
+    seoTitle: "4-Day Berber Valleys Trek | High Atlas Mountains & Berber Villages",
+    seoDescription: "Explore authentic Berber villages on a 4-day High Atlas trek from Marrakech via Imlil, Tamgist, Matat & Tizi Oussem. Custom pricing with licensed local guides.",
+    touristType: "Active hikers, nature lovers, and cultural explorers",
+    difficulty: "Moderate",
+    maxElevation: "2,300m (7,546 ft)",
+    startLocation: "Imlil (Pick up from Marrakech)",
+    endLocation: "Imlil (Drop off in Marrakech)",
+    startingPrice: 0,
+    customPrice: true,
+    imageSrc: cloudinaryImage("ac4b23f5-6901-4b78-895d-9075aceff36b_k0fdjd"),
+    imageAlt: "Hikers along a scenic mountain trail through the High Atlas Berber valleys",
+    galleryImages: [
+      {
+        src: cloudinaryImage("dc83dc85-f96b-45aa-bcb1-6181d776b48f_w7ds7i"),
+        alt: "Traditional stone Berber village nestled in the High Atlas mountain valley"
+      },
+      {
+        src: cloudinaryImage("08f37e6d-e186-4c51-83ad-1b5dc4b71607_ey0tyw"),
+        alt: "Terraced agricultural fields and river valleys in the High Atlas"
+      },
+      {
+        src: cloudinaryImage("44fd3401-35a1-4d9e-8d1c-ab0996109b46_tm67jp"),
+        alt: "Hikers enjoying panoramic mountain views on the Berber villages route"
+      }
+    ],
+    highlights: [
+      "Cross scenic High Atlas passes including Tizi n’Tamatert (2,300m)",
+      "Explore authentic Berber villages: Tamgist, Tacheddirt, Matat, and Tizi Oussem",
+      "Stay in welcoming traditional lodges and family-run Berber guesthouses",
+      "Enjoy daily fresh picnic and hot tagine lunches surrounded by nature",
+      "Immerse yourself in Berber mountain culture and ancient agricultural traditions",
+      "Fully supported private trek with licensed local guide, mule team, and Marrakech transfers"
+    ],
+    inclusions: [
+      "Private transfer from and back to your hotel or riad in Marrakech",
+      "Licensed English/French-speaking local High Atlas mountain guide",
+      "All meals during the trek (breakfasts, fresh cooked lunches, and traditional dinners)",
+      "3 nights accommodation in authentic Berber village lodges and guesthouses",
+      "Mules and muleteers to carry baggage and equipment",
+      "Dedicated trek cook preparing fresh, hearty Moroccan meals",
+      "Mineral/purified drinking water and daily Moroccan mint tea"
+    ],
+    exclusions: [
+      "Personal travel insurance (mandatory for trekking in Morocco)",
+      "Dinner on Day 4 after returning to Marrakech",
+      "Soft drinks, bottled alcohol, and personal snack supplies",
+      "Tips for the guiding team (guide, cook, muleteers)",
+      "Personal trekking equipment (boots, daypack, trekking poles)"
+    ],
+    pricingTiers: [],
+    packingList: [
+      "Sturdy, comfortable hiking boots or trail shoes",
+      "Daypack (25–35L) to carry water, camera, and extra layers",
+      "Breathable hiking shirts, trekking trousers, and warm fleece",
+      "Windproof and waterproof shell jacket",
+      "Trekking poles for pass climbs and descents",
+      "Sun protection: wide-brim hat, sunglasses, and high-SPF sunscreen",
+      "Reusable water bottle (1.5–2L minimum)",
+      "Personal first aid kit, blister plasters, and essential toiletries"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Marrakech – Imlil – Tizi n’Tamatert – Tamgist",
+        description: "We will pick you up from your hotel in Marrakech or the surrounding area (included in the price), then drive to the Imlil Valley, where you will meet our team before starting your trek. Today's hike will take you from Imlil, crossing the beautiful Tizi n’Tamatert Pass before reaching the traditional Berber village of Tamgist. You will hike for approximately 5 hours, starting at an altitude of 1,740 m and reaching around 2,300 m. Along the way, you will enjoy spectacular views of the High Atlas Mountains and surrounding valleys, with a lunch break at the mountain pass.",
+        walkingTime: "5 - 5.5 hours",
+        distance: "10 km (6.2 miles)",
+        elevationChange: "+560m / -150m",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Berber village lodge in Tamgist"
+      },
+      {
+        day: 2,
+        title: "Tacheddirt – Tamgist – Matat",
+        description: "After breakfast, you will leave Tacheddirt and continue your trek through the beautiful High Atlas Mountains towards Tamgist and Matat. Today's route takes you through traditional Berber villages, terraced fields and scenic mountain valleys, offering wonderful opportunities to discover local life and enjoy the spectacular landscapes. You will hike for approximately 5–6 hours, with a lunch break along the way. Upon arrival in Matat, you will settle into a traditional guesthouse for dinner and overnight accommodation.",
+        walkingTime: "5 - 6 hours",
+        distance: "12 km (7.5 miles)",
+        elevationChange: "+450m / -600m",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Traditional guesthouse in Matat"
+      },
+      {
+        day: 3,
+        title: "Matat – Tizi Oussem",
+        description: "After breakfast, you will depart from Matat and continue your adventure towards the beautiful village of Tizi Oussem. The trail passes through remote mountain landscapes, traditional Berber settlements and green valleys, with stunning views of the surrounding High Atlas peaks. Along the way, you will enjoy a lunch break surrounded by nature. After approximately 5–6 hours of hiking, you will arrive in Tizi Oussem, where you will spend the night in a local guesthouse and enjoy a traditional Moroccan dinner.",
+        walkingTime: "5 - 6 hours",
+        distance: "11 km (6.8 miles)",
+        elevationChange: "+550m / -400m",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Traditional guesthouse in Tizi Oussem"
+      },
+      {
+        day: 4,
+        title: "Tizi Oussem – Imlil",
+        description: "After breakfast, you will begin your final day of hiking, leaving Tizi Oussem and heading towards Imlil. The route takes you through beautiful mountain trails, traditional villages and spectacular scenery, offering a final opportunity to enjoy the peaceful atmosphere of the High Atlas Mountains. After approximately 5–6 hours of hiking, you will arrive in Imlil, where your trek comes to an end. From here, you can continue with your onward journey or arrange a private transfer back to Marrakech.",
+        walkingTime: "5 - 6 hours",
+        distance: "10 km (6.2 miles)",
+        elevationChange: "+600m / -700m",
+        meals: "Breakfast, Lunch",
+        accommodation: "End of trek (Transfer to Marrakech)"
+      }
+    ]
+  },
+  {
     slug: "3-day-merzouga-desert-tour-from-marrakech",
     title: "3-Day Merzouga Desert Tour from Marrakech",
     duration: "3 Days",
@@ -1024,13 +1134,21 @@ export function getTrekBySlug(slug: string): Trek | undefined {
   return treks.find((t) => t.slug === slug);
 }
 
-export function getPriceForGroup(trek: Trek, groupSize: number): { pricePerPerson: number; total: number } {
+export function getPriceForGroup(trek: Trek, groupSize: number): { pricePerPerson: number; total: number; isCustom?: boolean } {
+  if (trek.customPrice) {
+    return {
+      pricePerPerson: 0,
+      total: 0,
+      isCustom: true
+    };
+  }
   // Find matching tier
   const tiers = [...trek.pricingTiers].sort((a, b) => b.groupSize - a.groupSize);
   const matched = tiers.find((tier) => groupSize >= tier.groupSize) || { pricePerPerson: trek.startingPrice };
   const price = matched.pricePerPerson;
   return {
     pricePerPerson: price,
-    total: price * groupSize
+    total: price * groupSize,
+    isCustom: false
   };
 }

@@ -178,7 +178,7 @@ export default function Home() {
         <section id="treks" aria-labelledby="treks-heading" className="scroll-mt-24 bg-slate-50/70 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-12 max-w-3xl text-center">
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Seven ways into the mountains</p>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-terracotta">Handcrafted Mountain Routes</p>
               <h2 id="treks-heading" className="mt-3 text-3xl font-black tracking-tight text-brand-slate sm:text-5xl">Choose your High Atlas trek</h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">Compare duration, difficulty, highest point and price. Open any route for the day-by-day itinerary and full inclusions.</p>
             </div>

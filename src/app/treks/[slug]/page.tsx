@@ -28,7 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: trek.seoTitle ?? trek.title,
-    description: trek.seoDescription ?? `${trek.summary} From €${trek.startingPrice} per person with a licensed local Imlil guide.`.slice(0, 160),
+    description: trek.seoDescription ?? (
+      trek.customPrice
+        ? `${trek.summary} Custom pricing on request with a licensed local Imlil guide.`.slice(0, 160)
+        : `${trek.summary} From €${trek.startingPrice} per person with a licensed local Imlil guide.`.slice(0, 160)
+    ),
     alternates: {
       canonical: `/treks/${trek.slug}`,
     },
@@ -86,7 +90,9 @@ export default async function TrekDetail({ params }: Props) {
           "@type": "Offer",
           url: trekUrl,
           priceCurrency: "EUR",
-          price: trek.startingPrice,
+          ...(trek.customPrice
+            ? { description: "Custom quote on request" }
+            : { price: trek.startingPrice }),
           availability: "https://schema.org/InStock",
           seller: {
             "@type": "TravelAgency",
@@ -184,9 +190,17 @@ export default async function TrekDetail({ params }: Props) {
                 </span>
               </div>
               <div className="space-y-1 border-l border-slate-100">
-                <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Starting Price</span>
+                <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  {trek.customPrice ? "Pricing" : "Starting Price"}
+                </span>
                 <span className="text-sm font-black text-brand-slate">
-                  €{trek.startingPrice} <span className="text-[10px] text-slate-400 font-semibold uppercase">pp</span>
+                  {trek.customPrice ? (
+                    "Custom Quote"
+                  ) : (
+                    <>
+                      €{trek.startingPrice} <span className="text-[10px] text-slate-400 font-semibold uppercase">pp</span>
+                    </>
+                  )}
                 </span>
               </div>
             </div>

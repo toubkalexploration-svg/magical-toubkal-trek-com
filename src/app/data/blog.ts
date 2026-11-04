@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
     ],
     localNote:
       "Local field note: a valley walk is never only a soft option. Around Imlil and Azzadene, the trail can be gentle, but the cultural rules matter. Walk through villages calmly, ask before taking close photos, and let your guide handle invitations with respect.",
-    relatedTreks: ["1-day-imlil-valley-tour", "3-day-toubkal-tamsoult"],
+    relatedTreks: ["1-day-imlil-valley-tour", "3-day-toubkal-tamsoult", "4-day-berber-valleys-trek"],
     sections: [
       {
         heading: "The valleys are where the High Atlas becomes personal",
@@ -627,7 +627,7 @@ export const blogPosts: BlogPost[] = [
     ],
     localNote:
       "Local field note: Imlil is not one trailhead but a meeting point for several valleys. Ask where a route goes after the first pass. Tizi Mzik leads toward Azzaden; Tizi n'Tamatert opens the Imenane Valley; the southbound Mizane trail leads toward the Toubkal refuge.",
-    relatedTreks: ["1-day-imlil-valley-tour", "2-day-azzaden-valley-berber-villages", "2-day-imlil-imenane-valleys-trek", "2-day-toubkal-trek"],
+    relatedTreks: ["1-day-imlil-valley-tour", "2-day-azzaden-valley-berber-villages", "2-day-imlil-imenane-valleys-trek", "4-day-berber-valleys-trek", "2-day-toubkal-trek"],
     sections: [
       {
         heading: "Imlil at a glance",

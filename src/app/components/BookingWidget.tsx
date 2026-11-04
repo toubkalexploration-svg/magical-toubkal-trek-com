@@ -35,11 +35,15 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
 
   // Generate pre-filled WhatsApp link
   const whatsappBookingUrl = useMemo(() => {
+    const priceLine = trek.customPrice
+      ? `💰 Pricing: Custom quote requested for ${people} traveler${people > 1 ? "s" : ""}\n`
+      : `💰 Est. Price: €${pricePerPerson} per person (€${total} total)\n`;
+
     const text = encodeURIComponent(
       `Hello ${siteName}! I'd like to book the "${trek.title}" tour.\n\n` +
       `📅 Travel Date: ${date || "Not specified yet"}\n` +
       `👥 Group Size: ${people} travelers\n` +
-      `💰 Est. Price: €${pricePerPerson} per person (€${total} total)\n` +
+      priceLine +
       `📝 Notes: ${notes || "None"}\n\n` +
       `Please let me know if this date is available and how to proceed!`
     );
@@ -48,13 +52,17 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
 
   // Generate pre-filled Mailto link
   const emailBookingUrl = useMemo(() => {
+    const priceLineEmail = trek.customPrice
+      ? `- Pricing: Custom quote requested for ${people} travelers\n`
+      : `- Estimated Total Price: €${total} (€${pricePerPerson} per person)\n`;
+
     const subject = encodeURIComponent(`Booking Inquiry: ${trek.title}`);
     const body = encodeURIComponent(
       `Hello ${siteName},\n\n` +
       `I would like to inquire about booking the "${trek.title}" tour:\n\n` +
       `- Proposed Date: ${date || "To be discussed"}\n` +
       `- Number of Travelers: ${people}\n` +
-      `- Estimated Total Price: €${total} (€${pricePerPerson} per person)\n` +
+      priceLineEmail +
       `- Special Requests/Notes: ${notes || "None"}\n\n` +
       `Please confirm availability for our party.\n\n` +
       `Best regards,\n[My Name]`
@@ -69,7 +77,9 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-terracotta">Book With Local Guides</p>
         <h3 className="text-2xl font-extrabold mt-1 tracking-tight">Reserve This Tour</h3>
         <p className="text-xs text-slate-300 leading-relaxed mt-2">
-          Check the group price and send your dates. No payment needed to ask.
+          {trek.customPrice
+            ? "Send your dates and party size for a tailored quote. No payment needed to inquire."
+            : "Check the group price and send your dates. No payment needed to ask."}
         </p>
       </div>
 
@@ -145,19 +155,35 @@ export function BookingWidget({ trek }: BookingWidgetProps) {
         </div>
 
         {/* Pricing display */}
-        <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-100 flex flex-col gap-2.5">
-          <div className="flex justify-between items-center text-sm">
-            <span className="text-slate-500 font-medium">Rate per person:</span>
-            <span className="font-bold text-slate-800">€{pricePerPerson}</span>
-          </div>
-          <div className="border-t border-slate-200/60 pt-2 flex justify-between items-end">
-            <span className="text-slate-500 font-bold uppercase tracking-wide text-xs mb-1">Estimated Total:</span>
-            <div className="text-right">
-              <span className="text-2xl font-black text-brand-slate leading-none">€{total}</span>
-              <span className="block text-[10px] text-slate-400 font-semibold uppercase mt-0.5">VAT & local taxes included</span>
+        {trek.customPrice ? (
+          <div className="bg-amber-50/60 rounded-xl p-4 border border-amber-200/70 flex flex-col gap-2">
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-slate-600 font-bold uppercase tracking-wider text-xs">Pricing:</span>
+              <span className="font-extrabold text-brand-slate text-sm">Custom Quote</span>
+            </div>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Personalized pricing based on your dates, group size, and route preferences.
+            </p>
+            <div className="border-t border-amber-200/60 pt-2 flex justify-between items-center text-xs">
+              <span className="text-slate-500 font-bold uppercase tracking-wide text-[10px]">Estimated Total:</span>
+              <span className="font-black text-brand-terracotta text-sm">On Request</span>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-100 flex flex-col gap-2.5">
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-slate-500 font-medium">Rate per person:</span>
+              <span className="font-bold text-slate-800">€{pricePerPerson}</span>
+            </div>
+            <div className="border-t border-slate-200/60 pt-2 flex justify-between items-end">
+              <span className="text-slate-500 font-bold uppercase tracking-wide text-xs mb-1">Estimated Total:</span>
+              <div className="text-right">
+                <span className="text-2xl font-black text-brand-slate leading-none">€{total}</span>
+                <span className="block text-[10px] text-slate-400 font-semibold uppercase mt-0.5">VAT & local taxes included</span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Buttons */}
         <div className="grid gap-3 pt-2">

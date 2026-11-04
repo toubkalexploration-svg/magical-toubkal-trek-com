@@ -72,10 +72,18 @@ export function TrekCard({ trek }: TrekCardProps) {
 
         <div className="mt-auto flex items-end justify-between gap-4 pt-5">
           <div>
-            <span className="block text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">From</span>
+            <span className="block text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">
+              {trek.customPrice ? "Pricing" : "From"}
+            </span>
             <div className="mt-0.5 flex items-baseline gap-1">
-              <span className="text-2xl font-black tracking-tight text-brand-slate">€{trek.startingPrice}</span>
-              <span className="text-[11px] font-semibold text-slate-500">per person</span>
+              {trek.customPrice ? (
+                <span className="text-xl font-black tracking-tight text-brand-slate">Custom Quote</span>
+              ) : (
+                <>
+                  <span className="text-2xl font-black tracking-tight text-brand-slate">€{trek.startingPrice}</span>
+                  <span className="text-[11px] font-semibold text-slate-500">per person</span>
+                </>
+              )}
             </div>
           </div>
           <Link

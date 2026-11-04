@@ -71,7 +71,7 @@ export function JsonLd() {
     "makesOffer": treks.map((t) => ({
       "@type": "Offer",
       "priceCurrency": "EUR",
-      "price": t.startingPrice,
+      ...(t.customPrice ? { "description": "Custom quote on request" } : { "price": t.startingPrice }),
       "itemOffered": {
         "@type": "TouristTrip",
         "name": t.title,
