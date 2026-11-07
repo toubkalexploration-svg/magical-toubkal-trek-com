@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, TrendingUp, MapPin, Check, X, Shield, Star } from "lucide-react";
 import { treks, getTrekBySlug } from "../../data/treks";
+import { aggregateRating } from "../../data/reviews";
 import { BookingWidget } from "../../components/BookingWidget";
 
 type Props = {
@@ -75,38 +76,54 @@ export default async function TrekDetail({ params }: Props) {
 
   const diffStyle = difficultyColors[trek.difficulty] || difficultyColors.Moderate;
   const trekUrl = `https://www.magical-toubkal-trek.com/treks/${trek.slug}`;
+  const tourSchema: Record<string, unknown> = {
+    "@type": trek.customPrice ? "TouristTrip" : ["Product", "TouristTrip"],
+    "@id": `${trekUrl}#trek`,
+    name: trek.title,
+    description: trek.summary,
+    image: trek.imageSrc,
+    url: trekUrl,
+    touristType: trek.touristType ?? (trek.difficulty === "Easy" ? "Leisure hikers and families" : "Active hikers"),
+    itinerary: trek.itinerary.map((day) => ({
+      "@type": "ItemList",
+      name: `Day ${day.day}: ${day.title}`,
+      description: day.description,
+    })),
+    provider: {
+      "@type": "TravelAgency",
+      "@id": "https://www.magical-toubkal-trek.com/#business",
+      name: "Magical Toubkal Trek",
+    },
+  };
+
+  // Only include Product offers and ratings if there is a real numeric starting price
+  if (!trek.customPrice && trek.startingPrice > 0) {
+    tourSchema.brand = { "@type": "Brand", name: "Magical Toubkal Trek" };
+    tourSchema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: aggregateRating.ratingValue,
+      reviewCount: aggregateRating.reviewCount,
+      bestRating: aggregateRating.bestRating,
+      worstRating: aggregateRating.worstRating,
+    };
+    tourSchema.offers = {
+      "@type": "Offer",
+      url: trekUrl,
+      priceCurrency: "EUR",
+      price: trek.startingPrice,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "TravelAgency",
+        "@id": "https://www.magical-toubkal-trek.com/#business",
+        name: "Magical Toubkal Trek",
+      },
+    };
+  }
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": ["Product", "TouristTrip"],
-        "@id": `${trekUrl}#trek`,
-        name: trek.title,
-        description: trek.summary,
-        image: trek.imageSrc,
-        url: trekUrl,
-        brand: { "@type": "Brand", name: "Magical Toubkal Trek" },
-        touristType: trek.touristType ?? (trek.difficulty === "Easy" ? "Leisure hikers and families" : "Active hikers"),
-        itinerary: trek.itinerary.map((day) => ({
-          "@type": "ItemList",
-          name: `Day ${day.day}: ${day.title}`,
-          description: day.description,
-        })),
-        offers: {
-          "@type": "Offer",
-          url: trekUrl,
-          priceCurrency: "EUR",
-          ...(trek.customPrice
-            ? { description: "Custom quote on request" }
-            : { price: trek.startingPrice }),
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "TravelAgency",
-            "@id": "https://www.magical-toubkal-trek.com/#business",
-            name: "Magical Toubkal Trek",
-          },
-        },
-      },
+      tourSchema,
       {
         "@type": "BreadcrumbList",
         "@id": `${trekUrl}#breadcrumb`,

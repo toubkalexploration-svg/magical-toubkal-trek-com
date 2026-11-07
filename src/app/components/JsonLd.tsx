@@ -68,17 +68,20 @@ export function JsonLd() {
       },
       "reviewBody": r.text
     })),
-    "makesOffer": treks.map((t) => ({
-      "@type": "Offer",
-      "priceCurrency": "EUR",
-      ...(t.customPrice ? { "description": "Custom quote on request" } : { "price": t.startingPrice }),
-      "itemOffered": {
-        "@type": "TouristTrip",
-        "name": t.title,
-        "description": t.subtitle,
-        "url": `https://www.magical-toubkal-trek.com/treks/${t.slug}`
-      }
-    }))
+    "makesOffer": treks
+      .filter((t) => !t.customPrice && t.startingPrice > 0)
+      .map((t) => ({
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": t.startingPrice,
+        "availability": "https://schema.org/InStock",
+        "itemOffered": {
+          "@type": "TouristTrip",
+          "name": t.title,
+          "description": t.subtitle,
+          "url": `https://www.magical-toubkal-trek.com/treks/${t.slug}`
+        }
+      }))
   };
 
   const homeFaqSchema = {
