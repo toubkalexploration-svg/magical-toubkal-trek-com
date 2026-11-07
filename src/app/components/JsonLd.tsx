@@ -81,6 +81,45 @@ export function JsonLd() {
     }))
   };
 
+  const homeFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need a guide to climb Mount Toubkal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, a licensed local guide is legally required on the standard Mount Toubkal approach, with mandatory police checkpoints operating above Imlil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which trek is best for a first visit to the High Atlas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose the 1-Day Imlil Valley hike for a gentle introduction, the 2-Day Mount Toubkal climb if you are physically fit and short on time, or a 3-Day Berber Valleys route for a steadier cultural experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Marrakech transfers included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, multi-day Mount Toubkal packages include private pickup and return transfers from your Marrakech hotel or riad directly to Imlil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Mount Toubkal be climbed in winter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but winter conditions turn Toubkal into an alpine mountaineering ascent requiring crampons, ice axes, proper winter gear, and a safety-conscious mountain guide."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script
@@ -90,6 +129,10 @@ export function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
       />
     </>
   );

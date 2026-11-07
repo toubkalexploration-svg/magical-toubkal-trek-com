@@ -26,8 +26,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const pageTitle = trek.seoTitle
+    ? (trek.seoTitle.includes("Magical Toubkal Trek") ? trek.seoTitle : `${trek.seoTitle} | Magical Toubkal Trek`)
+    : `${trek.title} | Magical Toubkal Trek`;
+
   return {
-    title: trek.seoTitle ?? trek.title,
+    title: {
+      absolute: pageTitle,
+    },
     description: trek.seoDescription ?? (
       trek.customPrice
         ? `${trek.summary} Custom pricing on request with a licensed local Imlil guide.`.slice(0, 160)
@@ -37,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `/treks/${trek.slug}`,
     },
     openGraph: {
-      title: trek.seoTitle ?? trek.title,
+      title: pageTitle,
       description: trek.seoDescription ?? trek.subtitle,
       url: `/treks/${trek.slug}`,
       type: "website",
@@ -45,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: trek.seoTitle ?? trek.title,
+      title: pageTitle,
       description: trek.seoDescription ?? trek.subtitle,
       images: [trek.imageSrc],
     },
